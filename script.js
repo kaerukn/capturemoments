@@ -16,7 +16,7 @@ function showMedia(monthId) {
     
     const media = {
         oct: {
-            message1: "Dear Ali, I just want to say na I'm so lucky that I met you. I know that I said that I don't believe in God, but right now I can say that God always work in a unique way. Thank you so much baby",
+            message1: "Dear Ali, I just want to say na I'm so lucky that I met you. I know that I said that I don't believe in God, but right now I can say that God always work in a unique way. Thank you so much babyksnckinkdjksbnvs,kjbv,jsbdfkdsl.ns;ofheinhwahijvbpowhab vlwoanc jeusailkcnsvjalskvdsbealn",
             message2: "Second message for October: Add your text here.",
             image: "images/OctPic.jpg"
         },
@@ -50,4 +50,5 @@ function closeModal() {
     document.getElementById('media-modal').classList.remove('show');
 
 }
+
 
