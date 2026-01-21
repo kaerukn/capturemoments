@@ -44,7 +44,7 @@ function showMedia(monthId) {
             image: "images/DecPic.png"
         },
         jan: {
-            message1: "Happy Third Monthsary babyyy!",
+            message1: "Happy Third Monthsary babyyy! I can't believe na three months na tayo!. Anyway I really appreciate all of your efforts throughout our entire relationship",
             message2: "",
             image: "images/JanPic.jpeg"
         }
