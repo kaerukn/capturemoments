@@ -2,13 +2,26 @@ const correctPassword = "10-31-2025";
 
 function checkPassword() {
     const input = document.getElementById('password').value;
+    const loader = document.getElementById('loader');
+    const error = document.getElementById('error');
+
+    error.style.display = 'none';
+
     if (input === correctPassword) {
         document.getElementById('password-section').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
+        loader.style.display = 'block';
+
+        // Simulate loading
+        setTimeout(() => {
+            loader.style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }, 2000); // 2 seconds loading
+
     } else {
-        document.getElementById('error').style.display = 'block';
+        error.style.display = 'block';
     }
 }
+
 
 function showMedia(monthId) {
     const modal = document.getElementById('media-modal');
@@ -48,8 +61,4 @@ function showMedia(monthId) {
 
 function closeModal() {
     document.getElementById('media-modal').classList.remove('show');
-
 }
-
-
-
