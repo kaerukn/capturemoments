@@ -30,7 +30,7 @@ function showMedia(monthId) {
     const media = {
         oct: {
             message1: "Dear Ali, I just want to say na I'm so lucky that I met you. I know that I said that I don't believe in God, but right now I can say that God always work in a unique way. Thank you so much baby",
-            message2: "Second message for October: Add your text here.",
+            message2: "",
             image: "images/OctPic.jpg"
         },
         nov: {
