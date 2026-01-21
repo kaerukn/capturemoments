@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Media Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="password-section">
+        <h1>Enter the exact day when we became official:</h1>
+        <h5>(mm-dd-yyyy)</h5>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error" style="color: red; display: none;">Incorrect password!</p>
+    </div>
+    
+    <div id="content">
+        <h1>CHOOSE A MESSAGE FOR EVERY MONTH:</h1>
+        <div id="keys">
+            <button onclick="showMedia('oct')">OCTOBER</button>
+            <button onclick="showMedia('nov')">NOVEMBER</button>
+            <button onclick="showMedia('dec')">DECEMBER</button>
+            <button onclick="showMedia('jan')">JANUARY</button>
+        </div>
+    </div>
+    
+    <div id="media-modal" class="media-modal">
+        <div class="media-content">
+            <button onclick="closeModal()">Close</button>
+            <div id="media-display"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
