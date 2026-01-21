@@ -18,22 +18,22 @@ function showMedia(monthId) {
         oct: {
             message1: "Dear Ali, I just want to say na I'm so lucky that I met you. I know that I said that I don't believe in God, but right now I can say that God always work in a unique way. Thank you so much baby",
             message2: "Second message for October: Add your text here.",
-            image: "images/OctPic.jpg"
+            image: "OctPic.jpg"
         },
         nov: {
             message1: "Happy First Monthsary babyy! ",
             message2: "",
-            image: "images/NovPic.jpeg"
+            image: "NovPic.jpeg"
         },
         dec: {
             message1: "Happy Second Monthsary Babyyy!",
             message2: "",
-            image: "images/DecPic.png"
+            image: "DecPic.png"
         },
         jan: {
             message1: "Happy Third Monthsary babyyy!",
             message2: "",
-            image: "images/JanPic.jpeg"
+            image: "JanPic.jpeg"
         }
     };
     
@@ -48,4 +48,5 @@ function showMedia(monthId) {
 
 function closeModal() {
     document.getElementById('media-modal').classList.remove('show');
+
 }
