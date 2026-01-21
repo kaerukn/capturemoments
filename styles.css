@@ -16,9 +16,12 @@ body {
     background-color: hsl(341, 47%, 83%);
 }
 
+#password:hover{
+    background-color: hsl(340, 41%, 89%);
+}
+
 #password:not(:placeholder-shown) {
   background-color: hsl(341, 47%, 83%);
-  border-color: plum;
 }
 
 #content {
@@ -30,13 +33,16 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: hsl(340, 57%, 64%);
-    border: none;
-    border-radius: 25px;
+    background: #ff9eb5;
+    border-radius: 30px;
+    box-shadow: 0 6px 12px rgba(255, 158, 181, 0.4);
 }
+
 button:hover{
     background-color: hsl(340, 69%, 71%);
+    transform: scale(1.05);
 }
+
 button:active{
     background-color: hsl(341, 47%, 83%);
 }
@@ -62,12 +68,35 @@ button:active{
     padding: 20px;
     border-radius: 10px;
     max-width: 500px;
+    overflow: auto;
 }
 
-audio, img {
+img {
     max-width: 100%;
     max-height: 150px;
     width: auto;
     height: auto;
     margin: 10px 0;
+    border-radius: 25px;
 }
+
+* {
+  transition: all 0.3s ease;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ffd6dc;
+  border-top: 5px solid #ff6f91;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
