@@ -1,100 +1,58 @@
 const correctPassword = "10-31-2025";
 
-/* DEFAULT DATA */
-const defaultMedia = {
-    oct: {
-        message1: "Dear Ali, I just want to say na I'm so lucky that I met you.",
-        message2: "",
-        image: "images/OctPic.jpg"
-    },
-    nov: {
-        message1: "Happy First Monthsary babyy!",
-        message2: "",
-        image: "images/NovPic.jpeg"
-    },
-    dec: {
-        message1: "Happy Second Monthsary Babyyy!",
-        message2: "",
-        image: "images/DecPic.png"
-    },
-    jan: {
-        message1: "Happy Third Monthsary babyyy!",
-        message2: "",
-        image: "images/JanPic.jpeg"
-    }
-};
-
-/* LOAD SAVED DATA */
-let media = JSON.parse(localStorage.getItem("mediaData")) || defaultMedia;
-let currentMonth = "";
-
 /* PASSWORD CHECK */
 function checkPassword() {
     const input = document.getElementById("password").value;
-    const loader = document.getElementById("loader");
-    const error = document.getElementById("error");
-
-    error.style.display = "none";
-
     if (input === correctPassword) {
         document.getElementById("password-section").style.display = "none";
-        loader.style.display = "block";
-
-        setTimeout(() => {
-            loader.style.display = "none";
-            document.getElementById("content").style.display = "block";
-        }, 2000);
+        document.getElementById("content").style.display = "block";
+        loadMessages();
     } else {
-        error.style.display = "block";
+        document.getElementById("error").style.display = "block";
     }
 }
 
-/* SHOW MODAL */
-function showMedia(monthId) {
-    currentMonth = monthId;
-
-    const modal = document.getElementById("media-modal");
-    const display = document.getElementById("media-display");
-    const data = media[monthId];
-
-    display.innerHTML = `
-        <p><strong>Khian's Message</strong></p>
-        <textarea id="msg1" disabled>${data.message1}</textarea>
-
-        <p><strong>Ali's Message</strong></p>
-        <textarea id="msg2" disabled>${data.message2}</textarea>
-
-        <img src="${data.image}" alt="Month Image">
-
-        <br><br>
-        <button onclick="enableEdit()">Edit</button>
-        <button onclick="saveMessage()" id="saveBtn" style="display:none;">Save</button>
-    `;
-
-    modal.classList.add("show");
+/* LOAD SAVED MESSAGES */
+function loadMessages() {
+    for (let i = 1; i <= 4; i++) {
+        const msgA = localStorage.getItem("message" + i + "a");
+        const msgB = localStorage.getItem("message" + i + "b");
+        document.getElementById("message" + i + "a").textContent = msgA || "Click edit to write something special 🤍";
+        document.getElementById("message" + i + "b").textContent = msgB || "Click edit to write another special note 🤍";
+    }
 }
 
-/* ENABLE EDIT */
-function enableEdit() {
-    document.getElementById("msg1").disabled = false;
-    document.getElementById("msg2").disabled = false;
-    document.getElementById("saveBtn").style.display = "inline-block";
+function toggleMessages(num) {
+    const row = document.querySelector(`#message${num}a`).closest(".message-row");
+    row.classList.toggle("active"); // add/remove active class
 }
 
-/* SAVE MESSAGE */
-function saveMessage() {
-    media[currentMonth].message1 = document.getElementById("msg1").value;
-    media[currentMonth].message2 = document.getElementById("msg2").value;
+/* EDIT BOTH MESSAGES */
+function editMessages(num) {
+    const msgA = document.getElementById("message" + num + "a");
+    const msgB = document.getElementById("message" + num + "b");
+    const editA = document.getElementById("edit" + num + "a");
+    const editB = document.getElementById("edit" + num + "b");
 
-    localStorage.setItem("mediaData", JSON.stringify(media));
-    alert("Saved permanently 💖");
-
-    document.getElementById("msg1").disabled = true;
-    document.getElementById("msg2").disabled = true;
-    document.getElementById("saveBtn").style.display = "none";
+    editA.value = msgA.textContent;
+    editB.value = msgB.textContent;
+    editA.style.display = "block";
+    editB.style.display = "block";
 }
 
-/* CLOSE MODAL */
-function closeModal() {
-    document.getElementById("media-modal").classList.remove("show");
+/* SAVE BOTH MESSAGES */
+function saveMessages(num) {
+    const editA = document.getElementById("edit" + num + "a");
+    const editB = document.getElementById("edit" + num + "b");
+    const msgA = document.getElementById("message" + num + "a");
+    const msgB = document.getElementById("message" + num + "b");
+
+    msgA.textContent = editA.value;
+    msgB.textContent = editB.value;
+
+    localStorage.setItem("message" + num + "a", editA.value);
+    localStorage.setItem("message" + num + "b", editB.value);
+
+    editA.style.display = "none";
+    editB.style.display = "none";
 }
