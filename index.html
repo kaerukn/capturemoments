@@ -2,46 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Media Page</title>
-
-    <!-- LINK CSS FILE -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Our Little Space 🤍</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- PASSWORD SECTION -->
-    <div id="password-section">
-        <h1>Enter the exact day when we became official:</h1>
-        <h5>(mm-dd-yyyy)</h5>
-        <input type="password" id="password">
-        <br><br>
-        <button onclick="checkPassword()">Submit</button>
-        <p id="error">Incorrect password!</p>
-    </div>
+<!-- PASSWORD PAGE -->
+<div id="password-section">
+    <h2>🔒 Private Space</h2>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error">Wrong password</p>
+</div>
 
-    <!-- LOADER -->
-    <div id="loader" class="loader"></div>
+<!-- MAIN CONTENT -->
+<div id="content">
+    <h2>Our Little World 🤍</h2>
 
-    <!-- CONTENT -->
-    <div id="content">
-        <h1>CHOOSE A MESSAGE FOR EVERY MONTH</h1>
-        <button onclick="showMedia('oct')">OCTOBER</button>
-        <button onclick="showMedia('nov')">NOVEMBER</button>
-        <button onclick="showMedia('dec')">DECEMBER</button>
-        <button onclick="showMedia('jan')">JANUARY</button>
-    </div>
-
-    <!-- MODAL -->
-    <div id="media-modal" class="media-modal">
-        <div class="media-content">
-            <button class="close-btn" onclick="closeModal()">Close</button>
-            <div id="media-display"></div>
+    <!-- BUTTON 1 -->
+    <div class="message-box">
+        <button onclick="toggleMessages(1)">OCTOBER</button>
+        <div class="message-row">
+            <div class="messages">
+                <p id="message1a"></p>
+                <textarea id="edit1a"></textarea>
+                <p id="message1b"></p>
+                <textarea id="edit1b"></textarea>
+                <button onclick="editMessages(1)">Edit</button>
+                <button onclick="saveMessages(1)">Save</button>
+            </div>
+            <div class="message-image">
+                <img src="images/OctPic.jpg" alt="Our photo">
+            </div>
         </div>
     </div>
 
-    <!-- LINK JS FILE -->
-    <script src="script.js"></script>
+    <!-- BUTTON 2 -->
+    <div class="message-box">
+        <button onclick="toggleMessages(2)">NOVEMBER</button>
+        <div class="message-row">
+            <div class="messages">
+                <p id="message2a"></p>
+                <textarea id="edit2a"></textarea>
+                <p id="message2b"></p>
+                <textarea id="edit2b"></textarea>
+                <button onclick="editMessages(2)">Edit</button>
+                <button onclick="saveMessages(2)">Save</button>
+            </div>
+            <div class="message-image">
+                <img src="images/NovPic.jpeg" alt="Our photo">
+            </div>
+        </div>
+    </div>
+
+    <!-- BUTTON 3 -->
+    <div class="message-box">
+        <button onclick="toggleMessages(3)">DECEMBER</button>
+        <div class="message-row">
+            <div class="messages">
+                <p id="message3a"></p>
+                <textarea id="edit3a"></textarea>
+                <p id="message3b"></p>
+                <textarea id="edit3b"></textarea>
+                <button onclick="editMessages(3)">Edit</button>
+                <button onclick="saveMessages(3)">Save</button>
+            </div>
+            <div class="message-image">
+                <img src="images/DecPic.png" alt="Our photo">
+            </div>
+        </div>
+    </div>
+
+    <!-- BUTTON 4 -->
+    <div class="message-box">
+        <button onclick="toggleMessages(4)">JANUARY</button>
+        <div class="message-row">
+            <div class="messages">
+                <p id="message4a"></p>
+                <textarea id="edit4a"></textarea>
+                <p id="message4b"></p>
+                <textarea id="edit4b"></textarea>
+                <button onclick="editMessages(4)">Edit</button>
+                <button onclick="saveMessages(4)">Save</button>
+            </div>
+            <div class="message-image">
+                <img src="images/JanPic.jpeg" alt="Our photo">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
