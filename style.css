@@ -1,10 +1,16 @@
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
+}
+
+
+body {
+    min-height: 100vh; /* ensures full screen height */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffe4ec, #f8bbd0);
     text-align: center;
 }
+
 
 /* PASSWORD PAGE */
 #password-section {
