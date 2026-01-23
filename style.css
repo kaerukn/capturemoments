@@ -3,7 +3,6 @@ html, body {
     margin: 0;
 }
 
-
 body {
     min-height: 100vh; /* ensures full screen height */
     font-family: Arial, sans-serif;
@@ -14,7 +13,7 @@ body {
 
 /* PASSWORD PAGE */
 #password-section {
-    height: 150vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
