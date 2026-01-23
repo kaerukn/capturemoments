@@ -3,6 +3,7 @@ html, body {
     margin: 0;
 }
 
+
 body {
     min-height: 100vh; /* ensures full screen height */
     font-family: Arial, sans-serif;
