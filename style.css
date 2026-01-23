@@ -14,7 +14,7 @@ body {
 
 /* PASSWORD PAGE */
 #password-section {
-    height: 100vh;
+    height: 200vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

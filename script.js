@@ -1,6 +1,6 @@
 const correctPassword = "10-31-2025";
 
-/* YOUR MESSAGES – ONLY YOU EDIT THESE */
+/* MESSAGES */
 const messages = {
     1: [
         "This is the first message for button one 🤍",
