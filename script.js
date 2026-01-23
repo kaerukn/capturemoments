@@ -1,5 +1,25 @@
 const correctPassword = "10-31-2025";
 
+/* YOUR MESSAGES – ONLY YOU EDIT THESE */
+const messages = {
+    1: [
+        "This is the first message for button one 🤍",
+        "This is the second message for button one 🌸"
+    ],
+    2: [
+        "Button two message one ✨",
+        "Button two message two 💕"
+    ],
+    3: [
+        "Third button, first note 💌",
+        "Third button, second note 🌙"
+    ],
+    4: [
+        "Fourth button message one 🌷",
+        "Fourth button message two 🫶"
+    ]
+};
+
 /* PASSWORD CHECK */
 function checkPassword() {
     const input = document.getElementById("password").value;
@@ -12,47 +32,16 @@ function checkPassword() {
     }
 }
 
-/* LOAD SAVED MESSAGES */
+/* LOAD MESSAGES */
 function loadMessages() {
     for (let i = 1; i <= 4; i++) {
-        const msgA = localStorage.getItem("message" + i + "a");
-        const msgB = localStorage.getItem("message" + i + "b");
-        document.getElementById("message" + i + "a").textContent = msgA || "Click edit to write something special 🤍";
-        document.getElementById("message" + i + "b").textContent = msgB || "Click edit to write another special note 🤍";
+        document.getElementById(`message${i}a`).textContent = messages[i][0];
+        document.getElementById(`message${i}b`).textContent = messages[i][1];
     }
 }
 
+/* TOGGLE WITH ANIMATION */
 function toggleMessages(num) {
     const row = document.querySelector(`#message${num}a`).closest(".message-row");
-    row.classList.toggle("active"); // add/remove active class
-}
-
-/* EDIT BOTH MESSAGES */
-function editMessages(num) {
-    const msgA = document.getElementById("message" + num + "a");
-    const msgB = document.getElementById("message" + num + "b");
-    const editA = document.getElementById("edit" + num + "a");
-    const editB = document.getElementById("edit" + num + "b");
-
-    editA.value = msgA.textContent;
-    editB.value = msgB.textContent;
-    editA.style.display = "block";
-    editB.style.display = "block";
-}
-
-/* SAVE BOTH MESSAGES */
-function saveMessages(num) {
-    const editA = document.getElementById("edit" + num + "a");
-    const editB = document.getElementById("edit" + num + "b");
-    const msgA = document.getElementById("message" + num + "a");
-    const msgB = document.getElementById("message" + num + "b");
-
-    msgA.textContent = editA.value;
-    msgB.textContent = editB.value;
-
-    localStorage.setItem("message" + num + "a", editA.value);
-    localStorage.setItem("message" + num + "b", editB.value);
-
-    editA.style.display = "none";
-    editB.style.display = "none";
+    row.classList.toggle("active");
 }
