@@ -5,7 +5,7 @@ html, body {
 
 
 body {
-    min-height: 100vh; /* ensures full screen height */
+    min-height: 100vh; 
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #ffe4ec, #f8bbd0);
     text-align: center;
@@ -83,6 +83,7 @@ button:hover {
 
 .messages {
     flex: 1;
+    text-align: justify;
 }
 
 .message-image img {
