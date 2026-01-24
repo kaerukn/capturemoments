@@ -65,10 +65,8 @@ button:hover {
     width: 80%;
     max-width: 500px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    max-height: 260px;      
-    overflow-y: auto;        
-    padding-right: 10px;      
 }
+
 
 /* SMOOTH SLIDE */
 .message-row {
@@ -80,15 +78,17 @@ button:hover {
     margin-top: 10px;
 }
 
-
-
 .message-row.active {
-    max-height: 300px;
+    max-height: 350px; /* must be taller than .messages */
 }
 
 .messages {
     flex: 1;
     text-align: justify;
+
+    max-height: 220px;   /* FIXED HEIGHT */
+    overflow-y: auto;    /* SCROLL HERE */
+    padding-right: 10px;
 }
 
 .message-image img {
@@ -97,22 +97,26 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.message-box::-webkit-scrollbar {
+.messages::-webkit-scrollbar {
     width: 6px;
 }
 
-.message-box::-webkit-scrollbar-thumb {
+.messages::-webkit-scrollbar-thumb {
     background: #f06292;
     border-radius: 10px;
 }
 
-.message-box::-webkit-scrollbar-track {
+.messages::-webkit-scrollbar-track {
     background: #ffe4ec;
 }
 
 
 /* MOBILE */
 @media (max-width: 600px) {
+
+    .message{
+        max-height: 180px;
+    }
     .message-row {
         flex-direction: column;
         align-items: center;

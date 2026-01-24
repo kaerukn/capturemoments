@@ -42,6 +42,12 @@ function loadMessages() {
 
 /* TOGGLE WITH ANIMATION */
 function toggleMessages(num) {
-    const row = document.querySelector(`#message${num}a`).closest(".message-row");
+    const row = document
+        .querySelector(`#message${num}a`)
+        .closest(".message-row");
+
     row.classList.toggle("active");
+
+    const messagesBox = row.querySelector(".messages");
+    messagesBox.scrollTop = 0;
 }
