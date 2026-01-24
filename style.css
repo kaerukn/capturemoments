@@ -80,6 +80,8 @@ button:hover {
     margin-top: 10px;
 }
 
+
+
 .message-row.active {
     max-height: 300px;
 }
@@ -95,6 +97,20 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+.message-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message-box::-webkit-scrollbar-thumb {
+    background: #f06292;
+    border-radius: 10px;
+}
+
+.message-box::-webkit-scrollbar-track {
+    background: #ffe4ec;
+}
+
+
 /* MOBILE */
 @media (max-width: 600px) {
     .message-row {
@@ -105,5 +121,9 @@ button:hover {
     .message-image img {
         width: 150px;
         margin-top: 10px;
+    }
+
+    .message-box {
+        max-height: 200px;
     }
 }
