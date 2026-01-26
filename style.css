@@ -114,6 +114,10 @@ button:hover {
 /* MOBILE */
 @media (max-width: 600px) {
 
+    #password-section{
+        max-height: 100px;
+    }
+
     .message{
         max-height: 180px;
     }
