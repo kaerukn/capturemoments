@@ -116,6 +116,7 @@ button:hover {
 
     #password-section{
         max-height: 100px;
+        height: auto;
     }
 
     .message{
