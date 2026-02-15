@@ -17,6 +17,10 @@ const messages = {
     4: [
         "Happy Third Monthsary to us, babyyyy! I honestly can’t believe it’s already been three months. Time really flies when I’m with you. I love you so much, baby. I know these past few days I’ve been getting tampo a lot because of your move. It’s really just because I miss you so much, and I can’t help but worry that when you move, things might change. That thought scares me sometimes. But when I really think about it, I know I shouldn’t be afraid. I trust you. No matter where you are, I know you’ll always find a way to make things work for us. You always do, and you always make an effort just so we can see each other, and that means everything to me. I love you so, so much, baby. I know you love me too, because I can feel it in the way you care and in everything you do. I hope you can feel just how deeply I love you as well. I made this mini web for us so that even when we’re far apart, we can always come back to the memories we’ve made together. Captured Memories our own little space that only the two of us can access. It’s like our own world, just us. I love you so much, my baby. Happy 3rd Monthsary to us. 🤍",
         "Hi baby!! my Khian! today’s our 3rd monthsary and i just wanna greet you a happy third monthsary to us baby I hope that your love for me never fades and grows deeper and deeper, Always know that I love you so much khian ko and I will always do my baby, Thank you for all the love, care and support that you’ve always given me and im so grateful to have you baby. I just wanna apologize that im not the perfect bf that you could ask for and sorry for all my pagkukulangs to you I swear im trying my best. Pero baby I really miss everything about you/us i miss our daily ride, daily cuddles our paguusap pag tatampo mo nang walang dahilan(hehe) and lastly our moments together may it be sweet or bad moments Love you so much baby ko, again Happy Monthsary to us miss youuu!"
+    ],
+    5: [
+        "",
+        ""
     ]
 };
 
@@ -34,7 +38,7 @@ function checkPassword() {
 
 /* LOAD MESSAGES */
 function loadMessages() {
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; i++) {
         document.getElementById(`message${i}a`).textContent = messages[i][0];
         document.getElementById(`message${i}b`).textContent = messages[i][1];
     }
