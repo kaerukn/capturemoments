@@ -38,7 +38,7 @@ function checkPassword() {
 
 /* LOAD MESSAGES */
 function loadMessages() {
-    for (let i = 1; i <= messages.length; i++) {
+    for (let i = 1; i <= 5; i++) {
         document.getElementById(`message${i}a`).textContent = messages[i][0];
         document.getElementById(`message${i}b`).textContent = messages[i][1];
     }
