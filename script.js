@@ -1,4 +1,5 @@
 const correctPassword = "10-31-2025";
+const toggle = document.getElementById("toggle");
 
 //MESSAGES
 const messages = {
@@ -67,3 +68,14 @@ function filterYear(year) {
         }
     });
 }
+
+toggle.addEventListener("click", ()=>{
+    if(password.type === "password"){
+        password.type = "text";
+        toggle.textContent = "hide"
+    }
+    else{
+        password.type = "password";
+        toggle.textContent = "Show";
+    }
+})
