@@ -20,8 +20,15 @@
 <div id="content">
     <h2>CAPTURED MEMORIES</h2>
 
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <button onclick="filterYear('all')">All</button>
+        <button onclick="filterYear('first')">1st Year</button>
+        <button onclick="filterYear('special')">Special Events</button>
+    </div>
+
     <!-- BUTTON 1 -->
-    <div class="message-box">
+    <div class="message-box" data-year="first">
         <button onclick="toggleMessages(1)">OCTOBER</button>
         <div class="message-row">
             <div class="messages">
@@ -38,7 +45,7 @@
     </div>
 
     <!-- BUTTON 2 -->
-    <div class="message-box">
+    <div class="message-box" data-year="first">
         <button onclick="toggleMessages(2)">NOVEMBER</button>
         <div class="message-row">
             <div class="messages">
@@ -58,7 +65,7 @@
     </div>
 
     <!-- BUTTON 3 -->
-    <div class="message-box">
+    <div class="message-box" data-year="first">
         <button onclick="toggleMessages(3)">DECEMBER</button>
         <div class="message-row">
             <div class="messages">
@@ -78,7 +85,7 @@
     </div>
 
     <!-- BUTTON 4 -->
-    <div class="message-box">
+    <div class="message-box" data-year="first">
         <button onclick="toggleMessages(4)">JANUARY</button>
         <div class="message-row">
             <div class="messages">
@@ -98,7 +105,7 @@
     </div>
 
     <!-- BUTTON 5 -->
-    <div class="message-box">
+    <div class="message-box" data-year="special">
         <button onclick="toggleMessages(5)">VALENTINE'S</button>
         <div class="message-row">
             <div class="messages">
