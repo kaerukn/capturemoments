@@ -57,6 +57,21 @@ button:hover {
     padding: 20px;
 }
 
+.navbar {
+    margin-bottom: 15px;
+}
+
+.navbar button {
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #f8bbd0;
+}
+
+.navbar button:hover {
+    background: #ec407a;
+    color: white;
+}
+
 .message-box {
     background: white;
     padding: 15px;
