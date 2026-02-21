@@ -128,9 +128,27 @@ button:hover {
 /* MOBILE */
 @media (max-width: 600px) {
 
-    #password-section{
-        max-height: 100px;
-        height: auto;
+    #password-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    #password-section h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    input {
+        width: 80%;
+        max-width: 280px;
+    }
+
+    button {
+        width: 120px;
     }
 
     .message{
