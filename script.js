@@ -55,3 +55,15 @@ function toggleMessages(num) {
     const messagesBox = row.querySelector(".messages");
     messagesBox.scrollTop = 0;
 }
+
+function filterYear(year) {
+    const boxes = document.querySelectorAll('.message-box');
+
+    boxes.forEach(box => {
+        if (year === 'all' || box.dataset.year === year) {
+            box.style.display = "block";
+        } else {
+            box.style.display = "none";
+        }
+    });
+}
