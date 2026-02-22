@@ -1,21 +1,13 @@
-const SUPABASE_URL = "https://icfwdovgrtgxyrnhuqwm.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljZndkb3ZncnRneHlybmh1cXdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTY3ODksImV4cCI6MjA4NzMzMjc4OX0.v7hXK2t56FKZAcNSFr37OYyRAImUGDUYrG-euotiQGg";
+const SUPABASE_URL = "YOUR_PROJECT_URL";
+const SUPABASE_KEY = "YOUR_ANON_KEY";
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-/* SIDEBAR */
-function toggleSidebar() {
-    document.getElementById("side-menu").classList.toggle("visible");
-}
-
-function showPage(id) {
-    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-}
 
 /* PASSWORD */
 const correctPassword = "10-31-2025";
+const enterBtn = document.getElementById("enterBtn");
+const toggle = document.getElementById("toggle");
 
-function checkPassword() {
+enterBtn.addEventListener("click", () => {
     const input = document.getElementById("password").value;
 
     if (input === correctPassword) {
@@ -27,13 +19,22 @@ function checkPassword() {
     } else {
         document.getElementById("error").style.display = "block";
     }
+});
+
+toggle.addEventListener("change", () => {
+    const input = document.getElementById("password");
+    input.type = toggle.checked ? "text" : "password";
+});
+
+/* SIDEBAR */
+function toggleSidebar() {
+    document.getElementById("side-menu").classList.toggle("visible");
 }
 
-/* PASSWORD TOGGLE */
-document.getElementById("toggle").addEventListener("change", () => {
-    const input = document.getElementById("password");
-    input.type = input.type === "password" ? "text" : "password";
-});
+function showPage(id) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
 
 /* MESSAGES */
 async function loadMessages() {
@@ -45,21 +46,19 @@ async function loadMessages() {
 }
 
 client
-  .channel('public:messages')
-  .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'messages' }, payload => {
+  .channel("public:messages")
+  .on("postgres_changes", { event: "UPDATE", schema: "public", table: "messages" }, payload => {
       const row = payload.new;
       const el = document.getElementById(row.key);
       if (el) el.textContent = row.content || "";
   })
   .subscribe();
 
-/* TOGGLE MONTH */
 function toggleMessages(num) {
     const box = document.querySelector(`#message${num}a`).closest(".message-box");
     box.classList.toggle("active");
 }
 
-/* EDIT */
 function editMessage(id) {
     const el = document.getElementById(id);
     el.contentEditable = true;
@@ -67,16 +66,13 @@ function editMessage(id) {
     el.onblur = () => el.contentEditable = false;
 }
 
-/* POST */
 async function postMessage(id) {
     const el = document.getElementById(id);
-    await client.from("messages")
-        .update({ content: el.textContent })
-        .eq("key", id);
+    await client.from("messages").update({ content: el.textContent }).eq("key", id);
     alert("Posted!");
 }
 
-/* BUCKET LIST */
+/* BUCKET */
 let goals = [];
 
 async function loadGoals() {

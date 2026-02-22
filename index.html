@@ -15,13 +15,14 @@
         <span></span>
         <span></span>
     </div>
+
     <div id="side-menu">
         <button onclick="showPage('messages-page')">Messages</button>
         <button onclick="showPage('bucket-page')">Bucket List</button>
     </div>
 </div>
 
-<!-- PASSWORD -->
+<!-- PASSWORD PAGE -->
 <div id="password-section">
     <h2>🔒 Enter password</h2>
 
@@ -31,12 +32,11 @@
         <input type="checkbox" id="toggle"> Show Password
     </label>
 
-    <button type="button" onclick="checkPassword()">Enter</button>
-
-    <p id="error" style="display:none; color:red;">Wrong</p>
+    <button id="enterBtn" type="button">Enter</button>
+    <p id="error">Wrong password</p>
 </div>
 
-<!-- MAIN -->
+<!-- MAIN CONTENT -->
 <div id="content">
 
     <!-- MESSAGES -->
@@ -184,7 +184,7 @@
         <h2>Bucket List</h2>
 
         <div class="input-group">
-            <input type="text" id="goalInput">
+            <input type="text" id="goalInput" placeholder="Add goal">
             <button onclick="addGoal()">Add</button>
         </div>
 
@@ -195,10 +195,10 @@
         </div>
         <p id="progressText"></p>
     </div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="main.js"></script>
-
 </body>
 </html>

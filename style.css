@@ -11,6 +11,7 @@ html, body {
     position: fixed;
     top: 20px;
     left: 20px;
+    z-index: 100;
 }
 
 #hamburger {
@@ -65,7 +66,7 @@ html, body {
     display: block;
 }
 
-/* MESSAGE BOX BIG */
+/* MESSAGE BOX */
 .message-box {
     background: white;
     padding: 25px;
@@ -73,10 +74,10 @@ html, body {
     margin: 20px auto;
     width: 90%;
     max-width: 900px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-/* ACTIONS (hidden until open) */
+/* ACTION BUTTONS */
 .message-actions {
     display: none;
     margin-top: 8px;
@@ -104,12 +105,27 @@ html, body {
     text-align: justify;
     max-height: 350px;
     overflow-y: auto;
+    padding-right: 10px;
 }
 
 /* IMAGE */
 .message-image img {
     width: 160px;
     border-radius: 16px;
+}
+
+/* SCROLLBAR */
+.messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #f06292;
+    border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #ffe4ec;
 }
 
 /* BUCKET LIST */
@@ -127,6 +143,20 @@ html, body {
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+#goalList li.completed span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* INPUT GROUP */
+.input-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 12px;
 }
 
 /* PROGRESS */
@@ -143,6 +173,11 @@ html, body {
     width: 0%;
     background: #ec407a;
     border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+#progressText {
+    margin-top: 6px;
 }
 
 /* PASSWORD */
@@ -151,6 +186,28 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#error {
+    color: red;
+    display: none;
+}
+
+/* BUTTONS */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ec407a;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin: 6px;
+}
+
+button:hover {
+    background: #d81b60;
 }
 
 /* MOBILE */
@@ -166,5 +223,9 @@ html, body {
 
     .message-image img {
         width: 200px;
+    }
+
+    #goalList {
+        width: 95%;
     }
 }
