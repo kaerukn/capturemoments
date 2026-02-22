@@ -1,5 +1,5 @@
-const SUPABASE_URL = "https://icfwdovgrtgxyrnhuqwm.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljZndkb3ZncnRneHlybmh1cXdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTY3ODksImV4cCI6MjA4NzMzMjc4OX0.v7hXK2t56FKZAcNSFr37OYyRAImUGDUYrG-euotiQGg";
+const SUPABASE_URL = "YOUR_PROJECT_URL";
+const SUPABASE_KEY = "YOUR_ANON_KEY";
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* SIDEBAR */
@@ -28,6 +28,12 @@ function checkPassword() {
     }
 }
 
+/* PASSWORD TOGGLE */
+document.getElementById("toggle").addEventListener("change", () => {
+    const input = document.getElementById("password");
+    input.type = input.type === "password" ? "text" : "password";
+});
+
 /* MESSAGES */
 
 async function loadMessages() {
@@ -38,7 +44,7 @@ async function loadMessages() {
     });
 }
 
-/* realtime sync */
+/* realtime */
 client
   .channel('public:messages')
   .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'messages' }, payload => {
@@ -48,34 +54,30 @@ client
   })
   .subscribe();
 
-/* EDIT MODE */
+/* TOGGLE MONTH */
+function toggleMessages(num) {
+    const box = document.querySelector(`#message${num}a`).closest(".message-box");
+    box.classList.toggle("active");
+}
+
+/* EDIT */
 function editMessage(id) {
     const el = document.getElementById(id);
     el.contentEditable = true;
     el.focus();
 
-    el.onblur = () => {
-        el.contentEditable = false;
-    };
+    el.onblur = () => el.contentEditable = false;
 }
 
-/* POST (save) */
+/* POST */
 async function postMessage(id) {
     const el = document.getElementById(id);
-    if (!el) return;
-
     await client
         .from("messages")
         .update({ content: el.textContent })
         .eq("key", id);
 
     alert("Posted!");
-}
-
-/* TOGGLE MESSAGE ROW */
-function toggleMessages(num) {
-    const row = document.querySelector(`#message${num}a`).closest(".message-row");
-    row.classList.toggle("active");
 }
 
 /* BUCKET LIST */
@@ -120,7 +122,7 @@ function renderGoals() {
 
     let completed = 0;
 
-    goals.forEach((goal, index) => {
+    goals.forEach((goal) => {
         const li = document.createElement("li");
 
         if (goal.completed) {
@@ -133,11 +135,11 @@ function renderGoals() {
 
         const doneBtn = document.createElement("button");
         doneBtn.textContent = goal.completed ? "Undo" : "Done";
-        doneBtn.onclick = () => toggleGoal(index);
+        doneBtn.onclick = () => toggleGoal(goals.indexOf(goal));
 
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
-        deleteBtn.onclick = () => deleteGoal(index);
+        deleteBtn.onclick = () => deleteGoal(goals.indexOf(goal));
 
         li.appendChild(span);
         li.appendChild(doneBtn);
@@ -158,15 +160,5 @@ function updateProgress(done) {
         done + " of " + total + " completed";
 }
 
-const passwordInput = document.getElementById("password");
-const toggle = document.getElementById("toggle");
-
-toggle.addEventListener("change", () => {
-    if (toggle.checked) {
-        passwordInput.type = "text";
-    } else {
-        passwordInput.type = "password";
-    }
-});
 /* INITIAL */
 loadGoals();

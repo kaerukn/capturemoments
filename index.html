@@ -24,7 +24,7 @@
 <!-- PASSWORD -->
 <div id="password-section">
     <h2>🔒 Enter password</h2>
-    <input type="password" id="password">
+    <input type="password" id="password" placeholder="password">
     <label>
         <input type="checkbox" id="toggle"> Show Password
     </label>
@@ -38,135 +38,145 @@
     <!-- MESSAGES PAGE -->
     <div id="messages-page" class="page active">
         <h2>Messages</h2>
-    </div>
-    <!-- OCTOBER -->
-    <div class="message-box">
-        <button onclick="toggleMessages(1)">OCTOBER</button>
 
-        <button onclick="editMessage('message1a')">Edit</button>
-        <button onclick="postMessage('message1a')">Post</button>
+        <!-- OCTOBER -->
+        <div class="message-box">
+            <button onclick="toggleMessages(1)">OCTOBER</button>
 
-        <button onclick="editMessage('message1b')">Edit Reply</button>
-        <button onclick="postMessage('message1b')">Post</button>
+            <div class="message-actions">
+                <button onclick="editMessage('message1a')">Edit Khian's Message</button>
+                <button onclick="postMessage('message1a')">Post</button>
 
-        <div class="message-row">
-            <div class="messages">
-                <b>Khian's Message</b>
-                <p id="message1a"></p>
-
-                <b>Ali's Message</b>
-                <p id="message1b"></p>
+                <button onclick="editMessage('message1b')">Edit Ali's Message</button>
+                <button onclick="postMessage('message1b')">Post</button>
             </div>
 
-            <div class="message-image">
-                <img src="images/OctPic.jpg" alt="October photo">
-            </div>
-        </div>
-    </div>
+            <div class="message-row">
+                <div class="messages">
+                    <b>Khian's Message</b>
+                    <p id="message1a"></p>
 
-    <!-- NOVEMBER -->
-    <div class="message-box">
-        <button onclick="toggleMessages(2)">NOVEMBER</button>
+                    <b>Ali's Message</b>
+                    <p id="message1b"></p>
+                </div>
 
-        <button onclick="editMessage('message2a')">Edit</button>
-        <button onclick="postMessage('message2a')">Post</button>
-
-        <button onclick="editMessage('message2b')">Edit Reply</button>
-        <button onclick="postMessage('message2b')">Post</button>
-
-        <div class="message-row">
-            <div class="messages">
-                <b>Khian's Message</b>
-                <p id="message2a"></p>
-
-                <b>Ali's Message</b>
-                <p id="message2b"></p>
-            </div>
-
-            <div class="message-image">
-                <img src="images/NovPic.jpeg" alt="November photo">
+                <div class="message-image">
+                    <img src="images/OctPic.jpg" alt="October photo">
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- DECEMBER -->
-    <div class="message-box">
-        <button onclick="toggleMessages(3)">DECEMBER</button>
+        <!-- NOVEMBER -->
+        <div class="message-box">
+            <button onclick="toggleMessages(2)">NOVEMBER</button>
 
-        <button onclick="editMessage('message3a')">Edit</button>
-        <button onclick="postMessage('message3a')">Post</button>
+            <div class="message-actions">
+                <button onclick="editMessage('message2a')">Edit Khian's Message</button>
+                <button onclick="postMessage('message2a')">Post</button>
 
-        <button onclick="editMessage('message3b')">Edit Reply</button>
-        <button onclick="postMessage('message3b')">Post</button>
-
-        <div class="message-row">
-            <div class="messages">
-                <b>Khian's Message</b>
-                <p id="message3a"></p>
-
-                <b>Ali's Message</b>
-                <p id="message3b"></p>
+                <button onclick="editMessage('message2b')">Edit Ali's Message</button>
+                <button onclick="postMessage('message2b')">Post</button>
             </div>
 
-            <div class="message-image">
-                <img src="images/DecPic.png" alt="December photo">
-            </div>
-        </div>
-    </div>
+            <div class="message-row">
+                <div class="messages">
+                    <b>Khian's Message</b>
+                    <p id="message2a"></p>
 
-    <!-- JANUARY -->
-    <div class="message-box">
-        <button onclick="toggleMessages(4)">JANUARY</button>
+                    <b>Ali's Message</b>
+                    <p id="message2b"></p>
+                </div>
 
-        <button onclick="editMessage('message4a')">Edit</button>
-        <button onclick="postMessage('message4a')">Post</button>
-
-        <button onclick="editMessage('message4b')">Edit Reply</button>
-        <button onclick="postMessage('message4b')">Post</button>
-
-        <div class="message-row">
-            <div class="messages">
-                <b>Khian's Message</b>
-                <p id="message4a"></p>
-
-                <b>Ali's Message</b>
-                <p id="message4b"></p>
-            </div>
-
-            <div class="message-image">
-                <img src="images/JanPic.jpeg" alt="January photo">
+                <div class="message-image">
+                    <img src="images/NovPic.jpeg" alt="November photo">
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- VALENTINE -->
-    <div class="message-box">
-        <button onclick="toggleMessages(5)">VALENTINE</button>
+        <!-- DECEMBER -->
+        <div class="message-box">
+            <button onclick="toggleMessages(3)">DECEMBER</button>
 
-        <button onclick="editMessage('message5a')">Edit</button>
-        <button onclick="postMessage('message5a')">Post</button>
+            <div class="message-actions">
+                <button onclick="editMessage('message3a')">Edit Khian's Message</button>
+                <button onclick="postMessage('message3a')">Post</button>
 
-        <button onclick="editMessage('message5b')">Edit Reply</button>
-        <button onclick="postMessage('message5b')">Post</button>
-
-        <div class="message-row">
-            <div class="messages">
-                <b>Khian's Message</b>
-                <p id="message5a"></p>
-
-                <b>Ali's Message</b>
-                <p id="message5b"></p>
+                <button onclick="editMessage('message3b')">Edit Ali's Message</button>
+                <button onclick="postMessage('message3b')">Post</button>
             </div>
 
-            <div class="message-image">
-                <img src="images/ValPic.jpg" alt="Valentine photo">
+            <div class="message-row">
+                <div class="messages">
+                    <b>Khian's Message</b>
+                    <p id="message3a"></p>
+
+                    <b>Ali's Message</b>
+                    <p id="message3b"></p>
+                </div>
+
+                <div class="message-image">
+                    <img src="images/DecPic.png" alt="December photo">
+                </div>
             </div>
         </div>
+
+        <!-- JANUARY -->
+        <div class="message-box">
+            <button onclick="toggleMessages(4)">JANUARY</button>
+
+            <div class="message-actions">
+                <button onclick="editMessage('message4a')">Edit Khian's Message</button>
+                <button onclick="postMessage('message4a')">Post</button>
+
+                <button onclick="editMessage('message4b')">Edit Ali's Message</button>
+                <button onclick="postMessage('message4b')">Post</button>
+            </div>
+
+            <div class="message-row">
+                <div class="messages">
+                    <b>Khian's Message</b>
+                    <p id="message4a"></p>
+
+                    <b>Ali's Message</b>
+                    <p id="message4b"></p>
+                </div>
+
+                <div class="message-image">
+                    <img src="images/JanPic.jpeg" alt="January photo">
+                </div>
+            </div>
+        </div>
+
+        <!-- VALENTINE -->
+        <div class="message-box">
+            <button onclick="toggleMessages(5)">VALENTINE</button>
+
+            <div class="message-actions">
+                <button onclick="editMessage('message5a')">Edit Khian's Message</button>
+                <button onclick="postMessage('message5a')">Post</button>
+
+                <button onclick="editMessage('message5b')">Edit Ali's Message</button>
+                <button onclick="postMessage('message5b')">Post</button>
+            </div>
+
+            <div class="message-row">
+                <div class="messages">
+                    <b>Khian's Message</b>
+                    <p id="message5a"></p>
+
+                    <b>Ali's Message</b>
+                    <p id="message5b"></p>
+                </div>
+
+                <div class="message-image">
+                    <img src="images/ValPic.jpg" alt="Valentine photo">
+                </div>
+            </div>
+        </div>
+
     </div>
 
-</div>
-
-    <!-- BUCKET LIST PAGE -->
+    <!-- BUCKET LIST -->
     <div id="bucket-page" class="page">
         <h2>Bucket List</h2>
 
