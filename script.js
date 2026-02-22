@@ -158,5 +158,15 @@ function updateProgress(done) {
         done + " of " + total + " completed";
 }
 
+const passwordInput = document.getElementById("password");
+const toggle = document.getElementById("toggle");
+
+toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
+});
 /* INITIAL */
 loadGoals();
