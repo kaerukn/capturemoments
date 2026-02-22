@@ -3,7 +3,6 @@ html, body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(180deg, #ffe4ec 0%, #f8bbd0 100%);
-    background-attachment: fixed;
     text-align: center;
 }
 
@@ -12,7 +11,6 @@ html, body {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 100;
 }
 
 #hamburger {
@@ -34,7 +32,7 @@ html, body {
     background: white;
     padding: 12px;
     border-radius: 10px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 
     transform: translateX(-25px);
     opacity: 0;
@@ -49,7 +47,6 @@ html, body {
 }
 
 #side-menu button {
-    display: block;
     width: 100%;
     margin-bottom: 6px;
 }
@@ -59,7 +56,7 @@ html, body {
     color: white;
 }
 
-/* PAGE HANDLING */
+/* PAGE */
 .page {
     display: none;
 }
@@ -68,203 +65,18 @@ html, body {
     display: block;
 }
 
-/* EDIT BUTTON */
-.edit-btn {
-    background: #ec407a;
-    color: white;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 8px;
-    margin-top: 6px;
-    cursor: pointer;
-}
-
-.edit-btn:hover {
-    background: #d81b60;
-}
-
-/* BUCKET LIST */
-.input-group {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 12px;
-}
-
-#goalList {
-    list-style: none;
-    padding: 0;
-    max-width: 650px;
-    margin: 0 auto;
-}
-
-#goalList li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-    padding: 12px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.completed span {
-    text-decoration: line-through;
-    opacity: 0.6;
-}
-
-/* PROGRESS BAR */
-.progress-container {
-    width: 100%;
-    max-width: 650px;
-    height: 12px;
-    background: #eee;
-    border-radius: 8px;
-    margin: 12px auto;
-}
-
-#progressBar {
-    height: 100%;
-    width: 0%;
-    background: #ec407a;
-    border-radius: 8px;
-    transition: width 0.3s ease;
-}
-
-/* PASSWORD PAGE */
-#password-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-}
-
-input {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    margin-bottom: 10px;
-}
-
-#toggle {
-    cursor: pointer;
-    font-size: 16px;
-    background: #f8bbd0;
-    user-select: none;
-    padding: 6px;
-    border-radius: 6px;
-    display: inline-block;
-    margin-bottom: 10px;
-    transform: scale(1.4);
-}
-
-#toggle:checked {
-    accent-color: #ec407a;
-}
-
-button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    background: #ec407a;
-    color: white;
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 6px;
-}
-
-button:hover {
-    background: #d81b60;
-}
-
-#error {
-    color: red;
-    display: none;
-}
-
-/* MAIN CONTENT */
-#content {
-    display: none;
-    padding: 25px 15px;
-}
-
-/* NAVBAR */
-.navbar {
-    margin-bottom: 18px;
-}
-
-.navbar button {
-    padding: 10px 20px;
-    border-radius: 24px;
-    background: #f8bbd0;
-}
-
-.navbar button:hover {
-    background: #ec407a;
-    color: white;
-}
-
-/* MESSAGE BOX (BIGGER) */
+/* MESSAGE BOX BIG */
 .message-box {
     background: white;
-    padding: 24px;
+    padding: 25px;
     border-radius: 14px;
-    margin: 18px auto;
-    width: 95%;
-    max-width: 800px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* MESSAGE ROW */
-.message-row {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-    display: flex;
-    gap: 18px;
-    margin-top: 12px;
-}
-
-.message-row.active {
-    max-height: 700px;
-}
-
-.messages {
-    flex: 1;
-    text-align: justify;
-    max-height: 320px;
-    overflow-y: auto;
-    padding-right: 12px;
-}
-
-/* IMAGE */
-.message-image img {
-    width: 150px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* SCROLLBAR */
-.messages::-webkit-scrollbar {
-    width: 6px;
-}
-
-.messages::-webkit-scrollbar-thumb {
-    background: #f06292;
-    border-radius: 10px;
-}
-
-.messages::-webkit-scrollbar-track {
-    background: #ffe4ec;
-}
-
-/* MESSAGE ACTIONS */
+/* ACTIONS (hidden until open) */
 .message-actions {
     display: none;
     margin-top: 8px;
@@ -274,28 +86,75 @@ button:hover {
     display: block;
 }
 
+/* MESSAGE ROW */
+.message-row {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: flex;
+    gap: 20px;
+}
+
+.message-row.active {
+    max-height: 700px;
+}
+
+.messages {
+    flex: 1;
+    text-align: justify;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* IMAGE */
+.message-image img {
+    width: 160px;
+    border-radius: 16px;
+}
+
+/* BUCKET LIST */
+#goalList {
+    max-width: 900px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+
+#goalList li {
+    background: white;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* PROGRESS */
+.progress-container {
+    max-width: 900px;
+    margin: 12px auto;
+    height: 12px;
+    background: #eee;
+    border-radius: 8px;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #ec407a;
+    border-radius: 8px;
+}
+
+/* PASSWORD */
+#password-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* MOBILE */
 @media (max-width: 600px) {
-    #password-section {
-        min-height: 100vh;
-        padding: 20px;
-    }
-
-    #password-section h2 {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    input {
-        width: 95%;
-        max-width: none;
-    }
-
-    button {
-        width: 90%;
-        max-width: 300px;
-    }
-
     .message-box {
         width: 95%;
         max-width: none;
@@ -303,15 +162,9 @@ button:hover {
 
     .message-row {
         flex-direction: column;
-        align-items: center;
-    }
-
-    .messages {
-        max-height: 300px;
     }
 
     .message-image img {
         width: 200px;
-        margin-top: 10px;
     }
 }

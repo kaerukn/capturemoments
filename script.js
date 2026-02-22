@@ -1,5 +1,5 @@
-const SUPABASE_URL = "YOUR_PROJECT_URL";
-const SUPABASE_KEY = "YOUR_ANON_KEY";
+const SUPABASE_URL = "https://icfwdovgrtgxyrnhuqwm.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljZndkb3ZncnRneHlybmh1cXdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTY3ODksImV4cCI6MjA4NzMzMjc4OX0.v7hXK2t56FKZAcNSFr37OYyRAImUGDUYrG-euotiQGg";
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* SIDEBAR */
@@ -35,7 +35,6 @@ document.getElementById("toggle").addEventListener("change", () => {
 });
 
 /* MESSAGES */
-
 async function loadMessages() {
     const { data } = await client.from("messages").select();
     data?.forEach(row => {
@@ -44,7 +43,6 @@ async function loadMessages() {
     });
 }
 
-/* realtime */
 client
   .channel('public:messages')
   .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'messages' }, payload => {
@@ -65,23 +63,19 @@ function editMessage(id) {
     const el = document.getElementById(id);
     el.contentEditable = true;
     el.focus();
-
     el.onblur = () => el.contentEditable = false;
 }
 
 /* POST */
 async function postMessage(id) {
     const el = document.getElementById(id);
-    await client
-        .from("messages")
+    await client.from("messages")
         .update({ content: el.textContent })
         .eq("key", id);
-
     alert("Posted!");
 }
 
 /* BUCKET LIST */
-
 let goals = [];
 
 async function loadGoals() {
@@ -102,11 +96,9 @@ async function addGoal() {
 
 async function toggleGoal(index) {
     const goal = goals[index];
-    await client
-        .from("goals")
+    await client.from("goals")
         .update({ completed: !goal.completed })
         .eq("id", goal.id);
-
     loadGoals();
 }
 
@@ -122,7 +114,7 @@ function renderGoals() {
 
     let completed = 0;
 
-    goals.forEach((goal) => {
+    goals.forEach(goal => {
         const li = document.createElement("li");
 
         if (goal.completed) {
