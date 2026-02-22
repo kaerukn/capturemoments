@@ -1,86 +1,62 @@
-const SUPABASE_URL = "YOUR_PROJECT_URL";
-const SUPABASE_KEY = "YOUR_ANON_KEY";
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-/* PASSWORD */
 const correctPassword = "10-31-2025";
-const enterBtn = document.getElementById("enterBtn");
-const toggle = document.getElementById("toggle");
 
-enterBtn.addEventListener("click", () => {
+// PASSWORD
+function checkPassword() {
     const input = document.getElementById("password").value;
 
     if (input === correctPassword) {
         document.getElementById("password-section").style.display = "none";
         document.getElementById("content").style.display = "block";
-
         loadMessages();
         loadGoals();
     } else {
         document.getElementById("error").style.display = "block";
     }
-});
+}
 
-toggle.addEventListener("change", () => {
+// SHOW PASSWORD
+document.getElementById("toggle").addEventListener("change", () => {
     const input = document.getElementById("password");
-    input.type = toggle.checked ? "text" : "password";
+    input.type = input.type === "password" ? "text" : "password";
 });
 
-/* SIDEBAR */
-function toggleSidebar() {
-    document.getElementById("side-menu").classList.toggle("visible");
-}
+// ENTER BUTTON
+document.getElementById("enterBtn").addEventListener("click", checkPassword);
 
-function showPage(id) {
-    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-}
+// MESSAGES
+const messages = {
+    1: ["message here", ""],
+    2: ["message here", ""],
+    3: ["message here", ""],
+    4: ["message here", ""],
+    5: ["message here", ""]
+};
 
-/* MESSAGES */
-async function loadMessages() {
-    const { data } = await client.from("messages").select();
-    data?.forEach(row => {
-        const el = document.getElementById(row.key);
-        if (el) el.textContent = row.content || "";
-    });
+function loadMessages() {
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById(`message${i}a`).textContent = messages[i][0];
+        document.getElementById(`message${i}b`).textContent = messages[i][1];
+    }
 }
-
-client
-  .channel("public:messages")
-  .on("postgres_changes", { event: "UPDATE", schema: "public", table: "messages" }, payload => {
-      const row = payload.new;
-      const el = document.getElementById(row.key);
-      if (el) el.textContent = row.content || "";
-  })
-  .subscribe();
 
 function toggleMessages(num) {
-    const box = document.querySelector(`#message${num}a`).closest(".message-box");
-    box.classList.toggle("active");
+    const row = document.querySelector(`#message${num}a`).closest(".message-row");
+    row.classList.toggle("active");
 }
 
-function editMessage(id) {
-    const el = document.getElementById(id);
-    el.contentEditable = true;
-    el.focus();
-    el.onblur = () => el.contentEditable = false;
-}
+// DATABASE (bucket)
+const client = supabase.createClient("YOUR_PROJECT_URL", "YOUR_ANON_KEY");
 
-async function postMessage(id) {
-    const el = document.getElementById(id);
-    await client.from("messages").update({ content: el.textContent }).eq("key", id);
-    alert("Posted!");
-}
-
-/* BUCKET */
 let goals = [];
 
+// LOAD
 async function loadGoals() {
     const { data } = await client.from("goals").select();
     goals = data || [];
     renderGoals();
 }
 
+// ADD
 async function addGoal() {
     const input = document.getElementById("goalInput");
     const text = input.value.trim();
@@ -91,27 +67,31 @@ async function addGoal() {
     loadGoals();
 }
 
+// TOGGLE
 async function toggleGoal(index) {
     const goal = goals[index];
     await client.from("goals")
         .update({ completed: !goal.completed })
         .eq("id", goal.id);
+
     loadGoals();
 }
 
+// DELETE
 async function deleteGoal(index) {
     const goal = goals[index];
     await client.from("goals").delete().eq("id", goal.id);
     loadGoals();
 }
 
+// RENDER
 function renderGoals() {
     const list = document.getElementById("goalList");
     list.innerHTML = "";
 
     let completed = 0;
 
-    goals.forEach(goal => {
+    goals.forEach((goal, index) => {
         const li = document.createElement("li");
 
         if (goal.completed) {
@@ -122,16 +102,17 @@ function renderGoals() {
         const span = document.createElement("span");
         span.textContent = goal.text;
 
-        const doneBtn = document.createElement("button");
-        doneBtn.textContent = goal.completed ? "Undo" : "Done";
-        doneBtn.onclick = () => toggleGoal(goals.indexOf(goal));
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = goal.completed;
+        checkbox.onchange = () => toggleGoal(index);
 
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
-        deleteBtn.onclick = () => deleteGoal(goals.indexOf(goal));
+        deleteBtn.onclick = () => deleteGoal(index);
 
+        li.appendChild(checkbox);
         li.appendChild(span);
-        li.appendChild(doneBtn);
         li.appendChild(deleteBtn);
         list.appendChild(li);
     });
@@ -139,6 +120,7 @@ function renderGoals() {
     updateProgress(completed);
 }
 
+// PROGRESS
 function updateProgress(done) {
     const total = goals.length;
     const percent = total === 0 ? 0 : (done / total) * 100;
@@ -149,5 +131,13 @@ function updateProgress(done) {
         done + " of " + total + " completed";
 }
 
-/* INITIAL */
+// REALTIME
+client
+  .channel("public:goals")
+  .on("postgres_changes", { event: "*", schema: "public", table: "goals" }, () => {
+      loadGoals();
+  })
+  .subscribe();
+
+// INITIAL
 loadGoals();

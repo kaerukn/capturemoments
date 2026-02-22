@@ -8,21 +8,7 @@
 </head>
 <body>
 
-<!-- SIDEBAR -->
-<div id="sidebar">
-    <div id="hamburger" onclick="toggleSidebar()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <div id="side-menu">
-        <button onclick="showPage('messages-page')">Messages</button>
-        <button onclick="showPage('bucket-page')">Bucket List</button>
-    </div>
-</div>
-
-<!-- PASSWORD PAGE -->
+<!-- PASSWORD -->
 <div id="password-section">
     <h2>🔒 Enter password</h2>
 
@@ -36,169 +22,107 @@
     <p id="error">Wrong password</p>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <div id="content">
 
+    <h2>CAPTURED MEMORIES</h2>
+
     <!-- MESSAGES -->
-    <div id="messages-page" class="page active">
-        <h2>Messages</h2>
+    <div class="message-box" data-year="first">
+        <button onclick="toggleMessages(1)">OCTOBER</button>
+        <div class="message-row">
+            <div class="messages">
+                <b>Khian's Letter</b>
+                <p id="message1a"></p>
 
-        <!-- OCTOBER -->
-        <div class="message-box">
-            <button onclick="toggleMessages(1)">OCTOBER</button>
-
-            <div class="message-actions">
-                <button onclick="editMessage('message1a')">Edit Khian's Message</button>
-                <button onclick="postMessage('message1a')">Post</button>
-
-                <button onclick="editMessage('message1b')">Edit Ali's Message</button>
-                <button onclick="postMessage('message1b')">Post</button>
+                <b>Ali's Letter</b>
+                <p id="message1b"></p>
             </div>
-
-            <div class="message-row">
-                <div class="messages">
-                    <b>Khian's Message</b>
-                    <p id="message1a"></p>
-
-                    <b>Ali's Message</b>
-                    <p id="message1b"></p>
-                </div>
-
-                <div class="message-image">
-                    <img src="images/OctPic.jpg" alt="October">
-                </div>
+            <div class="message-image">
+                <img src="images/OctPic.jpg" alt="October">
             </div>
         </div>
+    </div>
 
-        <!-- NOVEMBER -->
-        <div class="message-box">
-            <button onclick="toggleMessages(2)">NOVEMBER</button>
+    <div class="message-box" data-year="first">
+        <button onclick="toggleMessages(2)">NOVEMBER</button>
+        <div class="message-row">
+            <div class="messages">
+                <b>Khian's Letter</b>
+                <p id="message2a"></p>
 
-            <div class="message-actions">
-                <button onclick="editMessage('message2a')">Edit Khian's Message</button>
-                <button onclick="postMessage('message2a')">Post</button>
-
-                <button onclick="editMessage('message2b')">Edit Ali's Message</button>
-                <button onclick="postMessage('message2b')">Post</button>
+                <b>Ali's Letter</b>
+                <p id="message2b"></p>
             </div>
-
-            <div class="message-row">
-                <div class="messages">
-                    <b>Khian's Message</b>
-                    <p id="message2a"></p>
-
-                    <b>Ali's Message</b>
-                    <p id="message2b"></p>
-                </div>
-
-                <div class="message-image">
-                    <img src="images/NovPic.jpeg" alt="November">
-                </div>
+            <div class="message-image">
+                <img src="images/NovPic.jpeg" alt="November">
             </div>
         </div>
+    </div>
 
-        <!-- DECEMBER -->
-        <div class="message-box">
-            <button onclick="toggleMessages(3)">DECEMBER</button>
+    <div class="message-box" data-year="first">
+        <button onclick="toggleMessages(3)">DECEMBER</button>
+        <div class="message-row">
+            <div class="messages">
+                <b>Khian's Letter</b>
+                <p id="message3a"></p>
 
-            <div class="message-actions">
-                <button onclick="editMessage('message3a')">Edit Khian's Message</button>
-                <button onclick="postMessage('message3a')">Post</button>
-
-                <button onclick="editMessage('message3b')">Edit Ali's Message</button>
-                <button onclick="postMessage('message3b')">Post</button>
+                <b>Ali's Letter</b>
+                <p id="message3b"></p>
             </div>
-
-            <div class="message-row">
-                <div class="messages">
-                    <b>Khian's Message</b>
-                    <p id="message3a"></p>
-
-                    <b>Ali's Message</b>
-                    <p id="message3b"></p>
-                </div>
-
-                <div class="message-image">
-                    <img src="images/DecPic.png" alt="December">
-                </div>
+            <div class="message-image">
+                <img src="images/DecPic.png" alt="December">
             </div>
         </div>
+    </div>
 
-        <!-- JANUARY -->
-        <div class="message-box">
-            <button onclick="toggleMessages(4)">JANUARY</button>
+    <div class="message-box" data-year="first">
+        <button onclick="toggleMessages(4)">JANUARY</button>
+        <div class="message-row">
+            <div class="messages">
+                <b>Khian's Letter</b>
+                <p id="message4a"></p>
 
-            <div class="message-actions">
-                <button onclick="editMessage('message4a')">Edit Khian's Message</button>
-                <button onclick="postMessage('message4a')">Post</button>
-
-                <button onclick="editMessage('message4b')">Edit Ali's Message</button>
-                <button onclick="postMessage('message4b')">Post</button>
+                <b>Ali's Letter</b>
+                <p id="message4b"></p>
             </div>
-
-            <div class="message-row">
-                <div class="messages">
-                    <b>Khian's Message</b>
-                    <p id="message4a"></p>
-
-                    <b>Ali's Message</b>
-                    <p id="message4b"></p>
-                </div>
-
-                <div class="message-image">
-                    <img src="images/JanPic.jpeg" alt="January">
-                </div>
+            <div class="message-image">
+                <img src="images/JanPic.jpeg" alt="January">
             </div>
         </div>
+    </div>
 
-        <!-- VALENTINE -->
-        <div class="message-box">
-            <button onclick="toggleMessages(5)">VALENTINE</button>
-
-            <div class="message-actions">
-                <button onclick="editMessage('message5a')">Edit Khian's Message</button>
-                <button onclick="postMessage('message5a')">Post</button>
-
-                <button onclick="editMessage('message5b')">Edit Ali's Message</button>
-                <button onclick="postMessage('message5b')">Post</button>
+    <div class="message-box" data-year="special">
+        <button onclick="toggleMessages(5)">VALENTINE</button>
+        <div class="message-row">
+            <div class="messages">
+                <b>Khian's Letter</b>
+                <p id="message5a"></p>
             </div>
-
-            <div class="message-row">
-                <div class="messages">
-                    <b>Khian's Message</b>
-                    <p id="message5a"></p>
-
-                    <b>Ali's Message</b>
-                    <p id="message5b"></p>
-                </div>
-
-                <div class="message-image">
-                    <img src="images/ValPic.jpg" alt="Valentine">
-                </div>
+            <div class="message-image">
+                <img src="images/ValPic.jpg" alt="Valentine">
             </div>
         </div>
     </div>
 
     <!-- BUCKET LIST -->
-    <div id="bucket-page" class="page">
-        <h2>Bucket List</h2>
+    <h2>Bucket List</h2>
 
-        <div class="input-group">
-            <input type="text" id="goalInput" placeholder="Add goal">
-            <button onclick="addGoal()">Add</button>
-        </div>
-
-        <ul id="goalList"></ul>
-
-        <div class="progress-container">
-            <div id="progressBar"></div>
-        </div>
-        <p id="progressText"></p>
+    <div class="input-group">
+        <input type="text" id="goalInput" placeholder="Add goal">
+        <button onclick="addGoal()">Add</button>
     </div>
+
+    <ul id="goalList"></ul>
+
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+    <p id="progressText"></p>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="main.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
