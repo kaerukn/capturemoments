@@ -25,11 +25,11 @@
 <div id="password-section">
     <h2>🔒 Enter the day we became official (MM-DD-YYYY)</h2>
     <input type="password" id="password" placeholder="Enter password">
-    <label for="toggle">
+    <label>
         <input type="checkbox" id="toggle"> Show Password
     </label>
     <button onclick="checkPassword()">Enter</button>
-    <p id="error">Wrong password (Include (-))</p>
+    <p id="error">Wrong password</p>
 </div>
 
 <!-- MAIN CONTENT -->
@@ -45,13 +45,18 @@
             <button onclick="filterYear('special')">Special Events</button>
         </div>
 
+        <!-- MESSAGE BOX TEMPLATE -->
         <div class="message-box" data-year="first">
             <button onclick="toggleMessages(1)">OCTOBER</button>
+            <button class="edit-btn" onclick="editMessage('message1a')">Edit</button>
+
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message1a"></p>
-                    <p id="message1b"></p>
+                    <p id="message1a" contenteditable="false"></p>
+
+                    <b><p>AJ'S LETTER</p></b>
+                    <p id="message1b" contenteditable="false"></p>
                 </div>
                 <div class="message-image">
                     <img src="images/OctPic.jpg" alt="Our photo">
@@ -61,12 +66,15 @@
 
         <div class="message-box" data-year="first">
             <button onclick="toggleMessages(2)">NOVEMBER</button>
+            <button class="edit-btn" onclick="editMessage('message2a')">Edit</button>
+
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message2a"></p>
+                    <p id="message2a" contenteditable="false"></p>
+
                     <b><p>AJ'S LETTER</p></b>
-                    <p id="message2b"></p>
+                    <p id="message2b" contenteditable="false"></p>
                 </div>
                 <div class="message-image">
                     <img src="images/NovPic.jpeg" alt="Our photo">
@@ -76,12 +84,15 @@
 
         <div class="message-box" data-year="first">
             <button onclick="toggleMessages(3)">DECEMBER</button>
+            <button class="edit-btn" onclick="editMessage('message3a')">Edit</button>
+
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message3a"></p>
+                    <p id="message3a" contenteditable="false"></p>
+
                     <b><p>AJ'S LETTER</p></b>
-                    <p id="message3b"></p>
+                    <p id="message3b" contenteditable="false"></p>
                 </div>
                 <div class="message-image">
                     <img src="images/DecPic.png" alt="Our photo">
@@ -91,12 +102,15 @@
 
         <div class="message-box" data-year="first">
             <button onclick="toggleMessages(4)">JANUARY</button>
+            <button class="edit-btn" onclick="editMessage('message4a')">Edit</button>
+
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message4a"></p>
+                    <p id="message4a" contenteditable="false"></p>
+
                     <b><p>AJ'S LETTER</p></b>
-                    <p id="message4b"></p>
+                    <p id="message4b" contenteditable="false"></p>
                 </div>
                 <div class="message-image">
                     <img src="images/JanPic.jpeg" alt="Our photo">
@@ -106,10 +120,12 @@
 
         <div class="message-box" data-year="special">
             <button onclick="toggleMessages(5)">VALENTINE'S</button>
+            <button class="edit-btn" onclick="editMessage('message5a')">Edit</button>
+
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message5a"></p>
+                    <p id="message5a" contenteditable="false"></p>
                 </div>
                 <div class="message-image">
                     <img src="images/ValPic.jpg" alt="Our photo">
