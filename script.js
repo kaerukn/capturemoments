@@ -1,8 +1,3 @@
-const SUPABASE_URL = "https://icfwdovgrtgxyrnhuqwm.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljZndkb3ZncnRneHlybmh1cXdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTY3ODksImV4cCI6MjA4NzMzMjc4OX0.v7hXK2t56FKZAcNSFr37OYyRAImUGDUYrG-euotiQGg";
-
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 const correctPassword = "10-31-2025";
 const toggle = document.getElementById("toggle");
 let goals = [];
@@ -34,7 +29,7 @@ function checkPassword() {
     }
 }
 
-/* MESSAGES DATA */
+/* MESSAGES */
 const messages = {
     1: [
         "Hi Ali, we finally became official, and honestly, I still can’t fully believe it. Having you in my life feels unreal because you are everything I’ve ever hoped for and more. I remember saying before that I didn’t believe in God, but being with you has changed something in me. Now I truly believe that God works in the most unexpected and unique ways, bringing people together at the perfect time. Every moment with you reminds me how grateful I am, and I can’t help but feel so lucky to call you mine. I love you so much, Ali, and I’m excited for everything we’ll share from here on. 🤍",
@@ -89,7 +84,10 @@ toggle.addEventListener("click", () => {
     }
 });
 
-/* BUCKET LIST (SUPABASE SYNC) */
+/* BUCKET LIST WITH SUPABASE */
+const SUPABASE_URL = "YOUR_PROJECT_URL";
+const SUPABASE_KEY = "YOUR_ANON_KEY";
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function loadGoals() {
     const { data } = await client.from("goals").select();
@@ -100,7 +98,6 @@ async function loadGoals() {
 async function addGoal() {
     const input = document.getElementById("goalInput");
     const text = input.value.trim();
-
     if (!text) return;
 
     await client.from("goals").insert([{ text, completed: false }]);
