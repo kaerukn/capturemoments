@@ -146,7 +146,7 @@ button:hover {
 @media (max-width: 600px) {
 
     #password-section {
-        min-height: 200vh;
+        min-height: 400vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
