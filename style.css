@@ -12,6 +12,109 @@ background-size: cover;
 text-align: center;
 }
 
+#sidebar {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+}
+
+#hamburger {
+    width: 35px;
+    cursor: pointer;
+}
+
+#hamburger span {
+    display: block;
+    height: 4px;
+    margin: 5px 0;
+    background: black;
+    border-radius: 2px;
+}
+
+#side-menu {
+    margin-top: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+    transform: translateX(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+#side-menu.visible {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#side-menu button {
+    display: block;
+    width: 100%;
+    margin-bottom: 6px;
+    transition: background 0.2s ease;
+}
+
+#side-menu button:hover {
+    background: #ec407a;
+    color: white;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* BUCKET LIST */
+.input-group {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#goalList {
+    list-style: none;
+    padding: 0;
+}
+
+#goalList li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+}
+
+.completed span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #ec407a;
+    border-radius: 6px;
+    transition: width 0.3s ease;
+}
+
 /* PASSWORD PAGE */
 #password-section {
 min-height: 100vh;

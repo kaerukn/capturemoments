@@ -1,7 +1,35 @@
 const correctPassword = "10-31-2025";
 const toggle = document.getElementById("toggle");
 
-//MESSAGES
+/* SIDEBAR */
+function toggleSidebar() {
+    const menu = document.getElementById("side-menu");
+    menu.classList.toggle("visible");
+}
+
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+    toggleSidebar();
+}
+
+/* PASSWORD CHECK */
+function checkPassword() {
+    const input = document.getElementById("password").value;
+
+    if (input === correctPassword) {
+        document.getElementById("password-section").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        loadMessages();
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
+
+/* MESSAGES DATA */
 const messages = {
     1: [
         "Hi Ali, we finally became official, and honestly, I still can’t fully believe it. Having you in my life feels unreal because you are everything I’ve ever hoped for and more. I remember saying before that I didn’t believe in God, but being with you has changed something in me. Now I truly believe that God works in the most unexpected and unique ways, bringing people together at the perfect time. Every moment with you reminds me how grateful I am, and I can’t help but feel so lucky to call you mine. I love you so much, Ali, and I’m excited for everything we’ll share from here on. 🤍",
@@ -25,18 +53,6 @@ const messages = {
     ]
 };
 
-/* PASSWORD CHECK */
-function checkPassword() {
-    const input = document.getElementById("password").value;
-    if (input === correctPassword) {
-        document.getElementById("password-section").style.display = "none";
-        document.getElementById("content").style.display = "block";
-        loadMessages();
-    } else {
-        document.getElementById("error").style.display = "block";
-    }
-}
-
 /* LOAD MESSAGES */
 function loadMessages() {
     for (let i = 1; i <= 5; i++) {
@@ -45,37 +61,106 @@ function loadMessages() {
     }
 }
 
-/* TOGGLE WITH ANIMATION */
+/* TOGGLE MESSAGE ROW */
 function toggleMessages(num) {
-    const row = document
-        .querySelector(`#message${num}a`)
-        .closest(".message-row");
-
+    const row = document.querySelector(`#message${num}a`).closest(".message-row");
     row.classList.toggle("active");
-
-    const messagesBox = row.querySelector(".messages");
-    messagesBox.scrollTop = 0;
+    row.querySelector(".messages").scrollTop = 0;
 }
 
+/* FILTER YEAR */
 function filterYear(year) {
-    const boxes = document.querySelectorAll('.message-box');
-
-    boxes.forEach(box => {
-        if (year === 'all' || box.dataset.year === year) {
-            box.style.display = "block";
-        } else {
-            box.style.display = "none";
-        }
+    document.querySelectorAll('.message-box').forEach(box => {
+        box.style.display =
+            year === 'all' || box.dataset.year === year ? "block" : "none";
     });
 }
 
-toggle.addEventListener("click", ()=>{
-    if(password.type === "password"){
+/* PASSWORD TOGGLE */
+toggle.addEventListener("click", () => {
+    if (password.type === "password") {
         password.type = "text";
-        toggle.textContent = "hide"
-    }
-    else{
+        toggle.textContent = "hide";
+    } else {
         password.type = "password";
         toggle.textContent = "Show";
     }
-})
+});
+
+/* BUCKET LIST */
+let goals = JSON.parse(localStorage.getItem("goals")) || [];
+
+function saveGoals() {
+    localStorage.setItem("goals", JSON.stringify(goals));
+}
+
+function renderGoals() {
+    const list = document.getElementById("goalList");
+    list.innerHTML = "";
+
+    let completed = 0;
+
+    goals.forEach((goal, index) => {
+        const li = document.createElement("li");
+
+        if (goal.completed) {
+            li.classList.add("completed");
+            completed++;
+        }
+
+        const span = document.createElement("span");
+        span.textContent = goal.text;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = goal.completed;
+        checkbox.onchange = () => toggleGoal(index);
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "X";
+        deleteBtn.onclick = () => deleteGoal(index);
+
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        list.appendChild(li);
+    });
+
+    updateProgress(completed);
+}
+
+function addGoal() {
+    const input = document.getElementById("goalInput");
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    goals.push({ text, completed: false });
+    input.value = "";
+    saveGoals();
+    renderGoals();
+}
+
+function toggleGoal(index) {
+    goals[index].completed = !goals[index].completed;
+    saveGoals();
+    renderGoals();
+}
+
+function deleteGoal(index) {
+    goals.splice(index, 1);
+    saveGoals();
+    renderGoals();
+}
+
+function updateProgress(done) {
+    const total = goals.length;
+    const percent = total === 0 ? 0 : (done / total) * 100;
+
+    document.getElementById("progressBar").style.width = percent + "%";
+    document.getElementById("progressText").textContent =
+        total === 0 ? "No goals yet" :
+        done + " of " + total + " completed";
+}
+
+renderGoals();

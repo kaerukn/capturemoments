@@ -8,6 +8,19 @@
 </head>
 <body>
 
+<!-- SIDEBAR -->
+<div id="sidebar">
+    <div id="hamburger" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="side-menu">
+        <button onclick="showPage('messages-page')">Messages</button>
+        <button onclick="showPage('bucket-page')">Bucket List</button>
+    </div>
+</div>
+
 <!-- PASSWORD PAGE -->
 <div id="password-section">
     <h2>🔒 Enter the day we became official (MM-DD-YYYY)</h2>
@@ -21,108 +34,106 @@
 
 <!-- MAIN CONTENT -->
 <div id="content">
-    <h2>CAPTURED MEMORIES</h2>
 
-    <!-- NAVBAR -->
-    <div class="navbar">
-        <button onclick="filterYear('all')">All</button>
-        <button onclick="filterYear('first')">1st Year</button>
-        <button onclick="filterYear('special')">Special Events</button>
-    </div>
+    <!-- MESSAGES PAGE -->
+    <div id="messages-page" class="page active">
+        <h2>CAPTURED MEMORIES</h2>
 
-    <!-- BUTTON 1 -->
-    <div class="message-box" data-year="first">
-        <button onclick="toggleMessages(1)">OCTOBER</button>
-        <div class="message-row">
-            <div class="messages">
-                <b>
-                    <p>KHIAN'S LETTER</p>
-                </b>
-                <p id="message1a"></p>
-                <p id="message1b"></p>
+        <div class="navbar">
+            <button onclick="filterYear('all')">All</button>
+            <button onclick="filterYear('first')">1st Year</button>
+            <button onclick="filterYear('special')">Special Events</button>
+        </div>
+
+        <div class="message-box" data-year="first">
+            <button onclick="toggleMessages(1)">OCTOBER</button>
+            <div class="message-row">
+                <div class="messages">
+                    <b><p>KHIAN'S LETTER</p></b>
+                    <p id="message1a"></p>
+                    <p id="message1b"></p>
+                </div>
+                <div class="message-image">
+                    <img src="images/OctPic.jpg" alt="Our photo">
+                </div>
             </div>
-            <div class="message-image">
-                <img src="images/OctPic.jpg" alt="Our photo">
+        </div>
+
+        <div class="message-box" data-year="first">
+            <button onclick="toggleMessages(2)">NOVEMBER</button>
+            <div class="message-row">
+                <div class="messages">
+                    <b><p>KHIAN'S LETTER</p></b>
+                    <p id="message2a"></p>
+                    <b><p>AJ'S LETTER</p></b>
+                    <p id="message2b"></p>
+                </div>
+                <div class="message-image">
+                    <img src="images/NovPic.jpeg" alt="Our photo">
+                </div>
+            </div>
+        </div>
+
+        <div class="message-box" data-year="first">
+            <button onclick="toggleMessages(3)">DECEMBER</button>
+            <div class="message-row">
+                <div class="messages">
+                    <b><p>KHIAN'S LETTER</p></b>
+                    <p id="message3a"></p>
+                    <b><p>AJ'S LETTER</p></b>
+                    <p id="message3b"></p>
+                </div>
+                <div class="message-image">
+                    <img src="images/DecPic.png" alt="Our photo">
+                </div>
+            </div>
+        </div>
+
+        <div class="message-box" data-year="first">
+            <button onclick="toggleMessages(4)">JANUARY</button>
+            <div class="message-row">
+                <div class="messages">
+                    <b><p>KHIAN'S LETTER</p></b>
+                    <p id="message4a"></p>
+                    <b><p>AJ'S LETTER</p></b>
+                    <p id="message4b"></p>
+                </div>
+                <div class="message-image">
+                    <img src="images/JanPic.jpeg" alt="Our photo">
+                </div>
+            </div>
+        </div>
+
+        <div class="message-box" data-year="special">
+            <button onclick="toggleMessages(5)">VALENTINE'S</button>
+            <div class="message-row">
+                <div class="messages">
+                    <b><p>KHIAN'S LETTER</p></b>
+                    <p id="message5a"></p>
+                </div>
+                <div class="message-image">
+                    <img src="images/ValPic.jpg" alt="Our photo">
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- BUTTON 2 -->
-    <div class="message-box" data-year="first">
-        <button onclick="toggleMessages(2)">NOVEMBER</button>
-        <div class="message-row">
-            <div class="messages">
-                <b>
-                    <p>KHIAN'S LETTER</p>
-                </b>
-                <p id="message2a"></p>
-                <b>
-                    <p>AJ'S LETTER</p>
-                </b>
-                <p id="message2b"></p>
-            </div>
-            <div class="message-image">
-                <img src="images/NovPic.jpeg" alt="Our photo">
-            </div>
-        </div>
-    </div>
+    <!-- BUCKET LIST PAGE -->
+    <div id="bucket-page" class="page">
+        <h2>Bucket List</h2>
 
-    <!-- BUTTON 3 -->
-    <div class="message-box" data-year="first">
-        <button onclick="toggleMessages(3)">DECEMBER</button>
-        <div class="message-row">
-            <div class="messages">
-                <b>
-                    <p>KHIAN'S LETTER</p>
-                </b>
-                <p id="message3a"></p>
-                <b>
-                    <p>AJ'S LETTER</p>
-                </b>
-                <p id="message3b"></p>
-            </div>
-            <div class="message-image">
-                <img src="images/DecPic.png" alt="Our photo">
-            </div>
+        <div class="input-group">
+            <input type="text" id="goalInput" placeholder="Add a goal">
+            <button onclick="addGoal()">Add</button>
         </div>
-    </div>
 
-    <!-- BUTTON 4 -->
-    <div class="message-box" data-year="first">
-        <button onclick="toggleMessages(4)">JANUARY</button>
-        <div class="message-row">
-            <div class="messages">
-                <b>
-                    <p>KHIAN'S LETTER</p>
-                </b>
-                <p id="message4a"></p>
-                <b>
-                    <p>AJ'S LETTER</p>
-                </b>
-                <p id="message4b"></p>
-            </div>
-            <div class="message-image">
-                <img src="images/JanPic.jpeg" alt="Our photo">
-            </div>
+        <div class="progress-container">
+            <div id="progressBar"></div>
         </div>
-    </div>
+        <p id="progressText"></p>
 
-    <!-- BUTTON 5 -->
-    <div class="message-box" data-year="special">
-        <button onclick="toggleMessages(5)">VALENTINE'S</button>
-        <div class="message-row">
-            <div class="messages">
-                <b>
-                    <p>KHIAN'S LETTER</p>
-                </b>
-                <p id="message5a"></p>
-            </div>
-            <div class="message-image">
-                <img src="images/ValPic.jpg" alt="Our photo">
-            </div>
-        </div>
+        <ul id="goalList"></ul>
     </div>
-
 </div>
 
 <script src="script.js"></script>
