@@ -4,9 +4,11 @@ margin: 0;
 }
 
 body {
-min-height: 100vh;
 font-family: Arial, sans-serif;
-background: linear-gradient(to bottom, #ffe4ec, #f8bbd0);
+background: linear-gradient(180deg, #ffe4ec 0%, #f8bbd0 100%);
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size: cover;
 text-align: center;
 }
 
