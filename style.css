@@ -3,88 +3,97 @@ html, body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(180deg, #ffe4ec 0%, #f8bbd0 100%);
+    background-attachment: fixed;
     text-align: center;
 }
 
-/* SIDEBAR */
-#sidebar {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
+/* PASSWORD PAGE */
+#password-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-#hamburger {
-    width: 40px;
-    cursor: pointer;
-}
-
-#hamburger span {
-    display: block;
-    height: 4px;
-    margin: 5px 0;
-    background: black;
-    border-radius: 3px;
-}
-
-/* SIDE MENU */
-#side-menu {
-    margin-top: 10px;
-    background: white;
+input {
     padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+#toggle {
+    cursor: pointer;
+    font-size: 16px;
+    background: #f8bbd0;
+    user-select: none;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    transform: scale(1.5);
+}
+
+#toggle:checked {
+    accent-color: #ec407a;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
     border-radius: 10px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-
-    transform: translateX(-25px);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.25s ease;
-}
-
-#side-menu.visible {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#side-menu button {
-    width: 100%;
-    margin-bottom: 6px;
-}
-
-#side-menu button:hover {
+    cursor: pointer;
     background: #ec407a;
     color: white;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: 6px;
 }
 
-/* PAGE */
-.page {
+button:hover {
+    background: #d81b60;
+}
+
+#error {
+    color: red;
     display: none;
 }
 
-.page.active {
-    display: block;
+/* MAIN CONTENT */
+#content {
+    display: none;
+    padding: 20px 10px;
+}
+
+/* NAVBAR */
+.navbar {
+    margin-bottom: 15px;
+}
+
+.navbar button {
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: #f8bbd0;
+}
+
+.navbar button:hover {
+    background: #ec407a;
+    color: white;
 }
 
 /* MESSAGE BOX */
 .message-box {
     background: white;
-    padding: 25px;
-    border-radius: 14px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 900px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-}
-
-/* ACTION BUTTONS */
-.message-actions {
-    display: none;
-    margin-top: 8px;
-}
-
-.message-box.active .message-actions {
-    display: block;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 15px auto;
+    width: 95%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* MESSAGE ROW */
@@ -93,25 +102,27 @@ html, body {
     overflow: hidden;
     transition: max-height 0.5s ease;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .message-row.active {
-    max-height: 700px;
+    max-height: 600px;
 }
 
 .messages {
     flex: 1;
     text-align: justify;
-    max-height: 350px;
+    max-height: 250px;
     overflow-y: auto;
     padding-right: 10px;
 }
 
 /* IMAGE */
 .message-image img {
-    width: 160px;
-    border-radius: 16px;
+    width: 120px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* SCROLLBAR */
@@ -128,90 +139,28 @@ html, body {
     background: #ffe4ec;
 }
 
-/* BUCKET LIST */
-#goalList {
-    max-width: 900px;
-    margin: 0 auto;
-    list-style: none;
-    padding: 0;
-}
-
-#goalList li {
-    background: white;
-    padding: 12px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#goalList li.completed span {
-    text-decoration: line-through;
-    opacity: 0.6;
-}
-
-/* INPUT GROUP */
-.input-group {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 12px;
-}
-
-/* PROGRESS */
-.progress-container {
-    max-width: 900px;
-    margin: 12px auto;
-    height: 12px;
-    background: #eee;
-    border-radius: 8px;
-}
-
-#progressBar {
-    height: 100%;
-    width: 0%;
-    background: #ec407a;
-    border-radius: 8px;
-    transition: width 0.3s ease;
-}
-
-#progressText {
-    margin-top: 6px;
-}
-
-/* PASSWORD */
-#password-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#error {
-    color: red;
-    display: none;
-}
-
-/* BUTTONS */
-button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #ec407a;
-    color: white;
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    margin: 6px;
-}
-
-button:hover {
-    background: #d81b60;
-}
-
 /* MOBILE */
 @media (max-width: 600px) {
+    #password-section {
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    #password-section h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    input {
+        width: 95%;
+        max-width: none;
+    }
+
+    button {
+        width: 90%;
+        max-width: 300px;
+    }
+
     .message-box {
         width: 95%;
         max-width: none;
@@ -219,13 +168,15 @@ button:hover {
 
     .message-row {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .messages {
+        max-height: 300px;
     }
 
     .message-image img {
         width: 200px;
-    }
-
-    #goalList {
-        width: 95%;
+        margin-top: 10px;
     }
 }
