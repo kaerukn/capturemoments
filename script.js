@@ -17,6 +17,7 @@ const correctPassword = "10-31-2025";
 
 function checkPassword() {
     const input = document.getElementById("password").value;
+
     if (input === correctPassword) {
         document.getElementById("password-section").style.display = "none";
         document.getElementById("content").style.display = "block";

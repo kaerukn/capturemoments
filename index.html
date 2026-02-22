@@ -24,12 +24,16 @@
 <!-- PASSWORD -->
 <div id="password-section">
     <h2>🔒 Enter password</h2>
+
     <input type="password" id="password" placeholder="password">
+
     <label>
         <input type="checkbox" id="toggle"> Show Password
     </label>
-    <button onclick="checkPassword()">Enter</button>
-    <p id="error">Wrong</p>
+
+    <button type="button" onclick="checkPassword()">Enter</button>
+
+    <p id="error" style="display:none; color:red;">Wrong</p>
 </div>
 
 <!-- MAIN -->
@@ -195,5 +199,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
