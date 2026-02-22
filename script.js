@@ -1,28 +1,22 @@
-const SUPABASE_URL = "https://icfwdovgrtgxyrnhuqwm.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljZndkb3ZncnRneHlybmh1cXdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTY3ODksImV4cCI6MjA4NzMzMjc4OX0.v7hXK2t56FKZAcNSFr37OYyRAImUGDUYrG-euotiQGg";
+const SUPABASE_URL = "YOUR_PROJECT_URL";
+const SUPABASE_KEY = "YOUR_ANON_KEY";
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-const correctPassword = "10-31-2025";
-const toggle = document.getElementById("toggle");
-let goals = [];
 
 /* SIDEBAR */
 function toggleSidebar() {
     document.getElementById("side-menu").classList.toggle("visible");
 }
 
-function showPage(pageId) {
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
-    document.getElementById(pageId).classList.add("active");
-    toggleSidebar();
+function showPage(id) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 
 /* PASSWORD */
+const correctPassword = "10-31-2025";
+
 function checkPassword() {
     const input = document.getElementById("password").value;
-
     if (input === correctPassword) {
         document.getElementById("password-section").style.display = "none";
         document.getElementById("content").style.display = "block";
@@ -38,20 +32,29 @@ function checkPassword() {
 
 async function loadMessages() {
     const { data } = await client.from("messages").select();
-
     data?.forEach(row => {
         const el = document.getElementById(row.key);
         if (el) el.textContent = row.content || "";
     });
 }
 
+/* realtime updates */
+client
+  .channel('public:messages')
+  .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'messages' }, payload => {
+      const row = payload.new;
+      const el = document.getElementById(row.key);
+      if (el) el.textContent = row.content || "";
+  })
+  .subscribe();
+
 async function updateMessage(id) {
-    const element = document.getElementById(id);
-    if (!element) return;
+    const el = document.getElementById(id);
+    if (!el) return;
 
     await client
         .from("messages")
-        .update({ content: element.textContent })
+        .update({ content: el.textContent })
         .eq("key", id);
 }
 
@@ -69,17 +72,11 @@ function editMessage(id) {
 function toggleMessages(num) {
     const row = document.querySelector(`#message${num}a`).closest(".message-row");
     row.classList.toggle("active");
-    row.querySelector(".messages").scrollTop = 0;
-}
-
-function filterYear(year) {
-    document.querySelectorAll('.message-box').forEach(box => {
-        box.style.display =
-            year === 'all' || box.dataset.year === year ? "block" : "none";
-    });
 }
 
 /* BUCKET LIST */
+
+let goals = [];
 
 async function loadGoals() {
     const { data } = await client.from("goals").select();
@@ -130,17 +127,16 @@ function renderGoals() {
         const span = document.createElement("span");
         span.textContent = goal.text;
 
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = goal.completed;
-        checkbox.onchange = () => toggleGoal(index);
+        const doneBtn = document.createElement("button");
+        doneBtn.textContent = goal.completed ? "Undo" : "Done";
+        doneBtn.onclick = () => toggleGoal(index);
 
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
         deleteBtn.onclick = () => deleteGoal(index);
 
-        li.appendChild(checkbox);
         li.appendChild(span);
+        li.appendChild(doneBtn);
         li.appendChild(deleteBtn);
         list.appendChild(li);
     });
@@ -158,10 +154,6 @@ function updateProgress(done) {
         done + " of " + total + " completed";
 }
 
-/* PASSWORD TOGGLE */
-toggle.addEventListener("click", () => {
-    password.type = password.type === "password" ? "text" : "password";
-});
+/* realtime for goals not required (load after change) */
 
-/* INITIAL */
 loadGoals();
