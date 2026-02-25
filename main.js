@@ -50,11 +50,15 @@ const messages = {
     5: [
         "Happy Valentine’s Day, baby!! I’m so happy and excited because you’re the first person I get to celebrate Valentine’s with, and that means so much to me. I feel so lucky and grateful that I get to spend this special day with you. I’m really happy that I get to give you flowers, hehe, and it makes me even happier that I received a gift from you too, hihi. I honestly didn’t expect it, and it made my day even more special. The flowers you gave me are so beautiful, but honestly, even without them, just being with you makes my Valentine’s Day perfect. Every moment with you feels amazing, and I can’t stop smiling just thinking about us. You make me feel so loved, so cared for, and so happy. I love you more than I can put into words, and I can’t wait to make so many more memories with you. I love you so much, baby, and I hope today is just the beginning of more happy moments together.",
         ""
+    ],
+    6: [
+        "",
+        ""
     ]
 };
 
 function loadMessages() {
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 6; i++) {
         document.getElementById(`message${i}a`).textContent = messages[i][0];
         document.getElementById(`message${i}b`).textContent = messages[i][1];
     }
