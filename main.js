@@ -65,7 +65,15 @@ function loadMessages() {
 }
 
 function toggleMessages(num) {
-    const row = document.querySelector(`#message${num}a`).closest(".message-row");
+    const button = document.querySelector(`button[onclick="toggleMessages(${num})"]`);
+    if (!button) return;
+
+    const box = button.closest(".message-box");
+    if (!box) return;
+
+    const row = box.querySelector(".message-row");
+    if (!row) return;
+
     row.classList.toggle("active");
     row.querySelector(".messages").scrollTop = 0;
 }
