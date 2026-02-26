@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.getElementById("toggle");
     let goals = [];
 
+    const enterBtn = document.getElementById("enterBtn");
+
+    enterBtn.addEventListener("click", checkPassword);
+
     /* SIDEBAR */
     function toggleSidebar() {
         document.getElementById("side-menu").classList.toggle("visible");
