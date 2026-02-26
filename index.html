@@ -17,7 +17,7 @@
     </div>
     <div id="side-menu">
         <button onclick="showPage('messages-page')">Messages</button>
-        <button onclick="showPage('bucket-page')">Bucket List</button>
+        <button onclick="showPage('countdown-page')">Countdown</button>
     </div>
 </div>
 
@@ -48,7 +48,7 @@
         </div>
 
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(1)">October</button>
+            <button onclick="toggleMessages(event, 1)">October</button>
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
@@ -62,7 +62,7 @@
         </div>
 
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(2)">November</button>
+            <button onclick="toggleMessages(event, 2)">November</button>
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
@@ -77,7 +77,7 @@
         </div>
 
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(3)">December</button>
+            <button onclick="toggleMessages(event, 3)">December</button>
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
@@ -92,7 +92,7 @@
         </div>
 
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(4)">January</button>
+            <button onclick="toggleMessages(event, 4)">January</button>
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
@@ -107,7 +107,7 @@
         </div>
 
         <div class="message-box" data-year="special">
-            <button onclick="toggleMessages(5)">Valentine</button>
+            <button onclick="toggleMessages(event, 5)">Valentine</button>
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
@@ -120,7 +120,7 @@
         </div>
 
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(6)">February</button>
+            <button onclick="toggleMessages(event, 6)">February</button>
             <div class="message-row">
                 <div class="messages">
                     <b><p>KHIAN'S LETTER</p></b>
@@ -135,26 +135,35 @@
         </div>
     </div>
 
-    <!-- BUCKET LIST PAGE -->
-    <div id="bucket-page" class="page">
-        <h2>Bucket List</h2>
-
-        <div class="input-group">
-            <input type="text" id="goalInput" placeholder="Add a goal">
-            <button onclick="addGoal()">Add</button>
+    <!-- COUNTDOWN PAGE -->
+    <div id="countdown-page" class="page">
+        <h2>ONE YEAR COUNTDOWN</h2>
+        <p class="countdown-subtitle">October 31, 2026</p>
+        
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span id="days">0</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-box">
+                <span id="hours">0</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-box">
+                <span id="minutes">0</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-box">
+                <span id="seconds">0</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
         </div>
-
-        <div class="progress-container">
-            <div id="progressBar"></div>
-        </div>
-
-        <p id="progressText"></p>
-        <ul id="goalList"></ul>
+        
+        <p class="countdown-message">Until our 1st Anniversary! 🤍</p>
     </div>
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="main.js"></script>
 </body>
 </html>

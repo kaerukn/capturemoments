@@ -1,6 +1,5 @@
 const correctPassword = "10-31-2025";
 const toggle = document.getElementById("toggle");
-let goals = [];
 
 /* SIDEBAR */
 function toggleSidebar() {
@@ -23,13 +22,15 @@ function checkPassword() {
         document.getElementById("password-section").style.display = "none";
         document.getElementById("content").style.display = "block";
         loadMessages();
-        loadGoals();
+        startCountdown();
+        createHearts();
     } else {
         document.getElementById("error").style.display = "block";
     }
 }
 
 /* MESSAGES */
+
 const messages = {
     1: [
         "Hi Ali, we finally became official, and honestly, I still can’t fully believe it. Having you in my life feels unreal because you are everything I’ve ever hoped for and more. I remember saying before that I didn’t believe in God, but being with you has changed something in me. Now I truly believe that God works in the most unexpected and unique ways, bringing people together at the perfect time. Every moment with you reminds me how grateful I am, and I can’t help but feel so lucky to call you mine. I love you so much, Ali, and I’m excited for everything we’ll share from here on. 🤍",
@@ -52,22 +53,21 @@ const messages = {
         ""
     ],
     6: [
-        "Today we mark our fourth small forever, a quiet milestone only our hearts can measure. Four months of laughter, of storms and calm, of finding home in each other’s arms. I’m grateful for you in ways my simple words can’t fully show. Even if I wrote a thousand lines, my heart would still have more to overflow. Thank you for staying through the chaos and the peace, through the moments I was hard to understand, through the times my worries wouldn’t cease. I’m sorry for the days I held too tight, for the times I let my fears speak loud. I’m learning love is gentle and kind, not something jealous or proud. But one truth stands, steady and sure. I will always choose you. Not just for now, not just for days, but in everything we go through. You are never an option, never second in line. You are my constant, my answered prayer, the heart that beats with mine. Be who you are—unchanged, unafraid, you never need to pretend. I love you exactly as you are, and I will stay until the end. My Ali, my AJ, my Mr. Cuizon, my love, my baby, my home. Happy fourth monthsary to us, with you, I am never alone. 🤍",
+        "Today we mark our fourth small forever, a quiet milestone only our hearts can measure. Four months of laughter, of storms and calm, of finding home in each other’s arms. I’m grateful for you in ways my simple words can’t fully show. Even if I wrote a thousand lines, my heart would still have more to overflow. Thank you for staying through the chaos and the peace, through the moments I was hard to understand, through the times my worries wouldn’t cease. I’m sorry for the days I held too tight, for the times I let my fears speak loud. I’m learning love is gentle and kind, not something jealous or proud. But one truth stands, steady and sure. I will always choose you. Not just for now, not just for days, but in everything we go through. You are never an option, never second in line. You are my constant, my answered prayer, the heart that beats with mine. Be who you are unchanged, unafraid, you never need to pretend. I love you exactly as you are, and I will stay until the end. My Ali, my AJ, my Mr. Cuizon, my love, my baby, my home. Happy fourth monthsary to us, with you, I am never alone. 🤍",
         ""
     ]
 };
-
 function loadMessages() {
     for (let i = 1; i <= 6; i++) {
-        document.getElementById(`message${i}a`).textContent = messages[i][0];
-        document.getElementById(`message${i}b`).textContent = messages[i][1];
+        const msgA = document.getElementById(`message${i}a`);
+        const msgB = document.getElementById(`message${i}b`);
+        if (msgA) msgA.textContent = messages[i][0];
+        if (msgB) msgB.textContent = messages[i][1];
     }
 }
 
-function toggleMessages(num) {
-    const button = document.querySelector(`button[onclick="toggleMessages(${num})"]`);
-    if (!button) return;
-
+function toggleMessages(event, num) {
+    const button = event.target;
     const box = button.closest(".message-box");
     if (!box) return;
 
@@ -75,7 +75,6 @@ function toggleMessages(num) {
     if (!row) return;
 
     row.classList.toggle("active");
-    row.querySelector(".messages").scrollTop = 0;
 }
 
 function filterYear(year) {
@@ -85,98 +84,72 @@ function filterYear(year) {
     });
 }
 
-/* PASSWORD TOGGLE */
-toggle.addEventListener("click", () => {
-    if (password.type === "password") {
-        password.type = "text";
-        toggle.textContent = "hide";
-    } else {
-        password.type = "password";
-        toggle.textContent = "Show";
-    }
-});
-
-/* BUCKET LIST WITH SUPABASE */
-const SUPABASE_URL = "https://icfwdovgrtgxyrnhuqwm.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljZndkb3ZncnRneHlybmh1cXdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTY3ODksImV4cCI6MjA4NzMzMjc4OX0.v7hXK2t56FKZAcNSFr37OYyRAImUGDUYrG-euotiQGg";
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-async function loadGoals() {
-    const { data } = await client.from("goals").select();
-    goals = data || [];
-    renderGoals();
+/* FLOATING HEARTS ANIMATION */
+function createHearts() {
+    const container = document.querySelector('.hearts-container') || createHeartsContainer();
+    const heartSymbols = ['🤍', '💕', '💗', '💖', '💓', '💘'];
+    
+    setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+        heart.style.animationDuration = (Math.random() * 3 + 6) + 's';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        
+        container.appendChild(heart);
+        
+        setTimeout(() => {
+            heart.remove();
+        }, 10000);
+    }, 800);
 }
 
-async function addGoal() {
-    const input = document.getElementById("goalInput");
-    const text = input.value.trim();
-    if (!text) return;
-
-    await client.from("goals").insert([{ text, completed: false }]);
-    input.value = "";
-    loadGoals();
+function createHeartsContainer() {
+    const container = document.createElement('div');
+    container.className = 'hearts-container';
+    document.body.appendChild(container);
+    return container;
 }
 
-async function toggleGoal(index) {
-    const goal = goals[index];
-    await client
-        .from("goals")
-        .update({ completed: !goal.completed })
-        .eq("id", goal.id);
+/* COUNTDOWN TIMER */
+function startCountdown() {
+    const targetDate = new Date("October 31, 2026 00:00:00").getTime();
 
-    loadGoals();
-}
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
 
-async function deleteGoal(index) {
-    const goal = goals[index];
-    await client.from("goals").delete().eq("id", goal.id);
-    loadGoals();
-}
-
-function renderGoals() {
-    const list = document.getElementById("goalList");
-    list.innerHTML = "";
-
-    let completed = 0;
-
-    goals.forEach((goal, index) => {
-        const li = document.createElement("li");
-
-        if (goal.completed) {
-            li.classList.add("completed");
-            completed++;
+        if (distance < 0) {
+            document.getElementById("days").textContent = "0";
+            document.getElementById("hours").textContent = "0";
+            document.getElementById("minutes").textContent = "0";
+            document.getElementById("seconds").textContent = "0";
+            return;
         }
 
-        const span = document.createElement("span");
-        span.textContent = goal.text;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = goal.completed;
-        checkbox.onchange = () => toggleGoal(index);
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    }
 
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "X";
-        deleteBtn.onclick = () => deleteGoal(index);
-
-        li.appendChild(checkbox);
-        li.appendChild(span);
-        li.appendChild(deleteBtn);
-        list.appendChild(li);
-    });
-
-    updateProgress(completed);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 }
 
-function updateProgress(done) {
-    const total = goals.length;
-    const percent = total === 0 ? 0 : (done / total) * 100;
-
-    document.getElementById("progressBar").style.width = percent + "%";
-    document.getElementById("progressText").textContent =
-        total === 0 ? "No goals yet" :
-        done + " of " + total + " completed";
-}
-
-/* INITIAL LOAD */
-loadGoals();
+/* PASSWORD TOGGLE */
+toggle.addEventListener("click", () => {
+    const password = document.getElementById("password");
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+});
