@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const correctPassword = "10-31-2025";
     const toggle = document.getElementById("toggle");
+    const password = document.getElementById("password");
     let goals = [];
 
     const enterBtn = document.getElementById("enterBtn");
@@ -84,15 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* PASSWORD TOGGLE */
-    toggle.addEventListener("click", () => {
-        if (password.type === "password") {
-            password.type = "text";
-            toggle.textContent = "hide";
-        } else {
-            password.type = "password";
-            toggle.textContent = "Show";
-        }
-    });
+    toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+});
 
     /* BUCKET LIST WITH SUPABASE */
     const SUPABASE_URL = "https://icfwdovgrtgxyrnhuqwm.supabase.co";
