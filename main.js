@@ -52,7 +52,7 @@ const messages = {
         ""
     ],
     6: [
-        "",
+        "Today we mark our fourth small forever, a quiet milestone only our hearts can measure. Four months of laughter, of storms and calm, of finding home in each other’s arms. I’m grateful for you in ways my simple words can’t fully show. Even if I wrote a thousand lines, my heart would still have more to overflow. Thank you for staying through the chaos and the peace, through the moments I was hard to understand, through the times my worries wouldn’t cease. I’m sorry for the days I held too tight, for the times I let my fears speak loud. I’m learning love is gentle and kind, not something jealous or proud. But one truth stands, steady and sure. I will always choose you. Not just for now, not just for days, but in everything we go through. You are never an option, never second in line. You are my constant, my answered prayer, the heart that beats with mine. Be who you are—unchanged, unafraid, you never need to pretend. I love you exactly as you are, and I will stay until the end. My Ali, my AJ, my Mr. Cuizon, my love, my baby, my home. Happy fourth monthsary to us, with you, I am never alone. 🤍",
         ""
     ]
 };
