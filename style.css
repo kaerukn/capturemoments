@@ -397,159 +397,204 @@ button:active {
     }
 }
 
-/* MOBILE - MUCH LARGER CONTENT */
+/* MOBILE - EXTRA LARGE (NO ZOOM NEEDED) */
 @media (max-width: 600px) {
+    /* BASE */
+    body {
+        font-size: 18px;
+    }
+
     /* PASSWORD PAGE */
+    #password-section {
+        padding: 30px 15px;
+    }
+
     #password-section h2 {
-        font-size: 32px;
-        padding: 0 15px;
-        margin-bottom: 40px;
+        font-size: 38px;
+        padding: 0 10px;
+        margin-bottom: 50px;
     }
 
     input {
-        width: 90%;
-        padding: 22px;
+        width: 92%;
+        padding: 26px;
+        font-size: 28px;
+        border-radius: 18px;
+        margin-bottom: 25px;
+    }
+
+    input::placeholder {
         font-size: 24px;
-        border-radius: 15px;
-        margin-bottom: 20px;
     }
 
     #toggle {
-        transform: scale(1.8);
-        margin-right: 10px;
+        transform: scale(2);
+        margin-right: 12px;
+        vertical-align: middle;
+    }
+
+    label {
+        font-size: 22px;
+        display: block;
+        margin-bottom: 25px;
     }
 
     button {
-        width: 90%;
-        max-width: 400px;
-        padding: 22px 35px;
-        font-size: 24px;
-        border-radius: 15px;
+        width: 92%;
+        max-width: 450px;
+        padding: 28px 40px;
+        font-size: 28px;
+        border-radius: 18px;
     }
 
     #error {
-        font-size: 22px;
-        margin-top: 15px;
+        font-size: 26px;
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
 
     /* MAIN CONTENT */
     #content {
-        padding: 20px 10px;
+        padding: 25px 12px;
     }
 
     h2 {
-        font-size: 34px;
-        margin-bottom: 35px;
+        font-size: 40px;
+        margin-bottom: 40px;
     }
 
     /* NAVBAR */
     .navbar {
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
 
     .navbar button {
-        padding: 18px 28px;
-        font-size: 20px;
-        margin: 0 8px;
-        border-radius: 30px;
+        padding: 20px 32px;
+        font-size: 24px;
+        margin: 0 10px;
+        border-radius: 35px;
     }
 
     /* MESSAGE BOXES */
     .message-box {
-        padding: 28px;
-        margin: 20px auto;
-        border-radius: 20px;
+        padding: 32px;
+        margin: 22px auto;
+        border-radius: 24px;
     }
 
     .message-box button {
-        font-size: 26px;
-        padding: 20px 30px;
+        font-size: 30px;
+        padding: 24px 36px;
         width: 100%;
+        border-radius: 16px;
     }
 
     /* MESSAGE ROW */
     .message-row {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-        margin-top: 20px;
+        gap: 25px;
+        margin-top: 25px;
     }
 
     .messages {
-        max-height: 400px;
-        font-size: 22px;
-        line-height: 1.8;
-        padding-right: 15px;
+        max-height: 450px;
+        font-size: 26px;
+        line-height: 1.9;
+        padding-right: 18px;
+        text-align: left;
     }
 
     .messages b {
-        font-size: 24px;
+        font-size: 28px;
+        display: block;
+        margin-bottom: 8px;
     }
 
     .messages p {
-        margin: 15px 0;
+        margin: 18px 0;
+    }
+
+    .message-image {
+        order: -1;
     }
 
     .message-image img {
-        width: 280px;
-        border-radius: 20px;
+        width: 320px;
+        border-radius: 24px;
     }
 
     /* SCROLLBAR */
     .messages::-webkit-scrollbar {
-        width: 10px;
+        width: 12px;
+    }
+
+    .messages::-webkit-scrollbar-thumb {
+        background: #f06292;
+        border-radius: 12px;
     }
 
     /* COUNTDOWN */
     .countdown-subtitle {
-        font-size: 32px;
-        margin-bottom: 45px;
+        font-size: 38px;
+        margin-bottom: 55px;
     }
 
     .countdown-container {
-        gap: 18px;
-        margin-bottom: 45px;
+        gap: 22px;
+        margin-bottom: 55px;
     }
 
     .countdown-box {
-        padding: 28px 32px;
-        min-width: 85px;
-        border-radius: 20px;
+        padding: 34px 38px;
+        min-width: 95px;
+        border-radius: 24px;
     }
 
     .countdown-box span:first-child {
-        font-size: 44px;
+        font-size: 52px;
     }
 
     .countdown-label {
-        font-size: 18px;
-        margin-top: 8px;
+        font-size: 22px;
+        margin-top: 10px;
+        display: block;
     }
 
     .countdown-message {
-        font-size: 26px;
-        padding: 0 20px;
+        font-size: 30px;
+        padding: 0 25px;
     }
 
     /* SIDEBAR */
+    #sidebar {
+        top: 20px;
+        left: 20px;
+    }
+
     #hamburger {
-        width: 45px;
+        width: 55px;
+        height: 55px;
+        background: white;
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     #hamburger span {
-        height: 5px;
-        margin: 6px 0;
+        height: 6px;
+        margin: 7px 0;
     }
 
     #side-menu {
-        padding: 15px;
-        border-radius: 12px;
+        padding: 18px;
+        border-radius: 16px;
     }
 
     #side-menu button {
-        font-size: 22px;
-        padding: 18px 24px;
-        margin-bottom: 10px;
-        border-radius: 12px;
+        font-size: 26px;
+        padding: 22px 30px;
+        margin-bottom: 12px;
+        border-radius: 14px;
     }
 }
