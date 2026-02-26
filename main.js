@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function () {
+
 const correctPassword = "10-31-2025";
 const toggle = document.getElementById("toggle");
 let goals = [];
@@ -172,3 +174,5 @@ function updateProgress(done) {
 
 /* INITIAL LOAD */
 loadGoals();
+
+});
