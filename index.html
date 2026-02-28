@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Little Space 🤍</title>
     <link rel="icon" type="image/jpg" href="images/chibi-mirrorshot.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- FLOATING HEARTS -->
+<div class="hearts-container"></div>
 
 <!-- SIDEBAR -->
 <div id="sidebar">
@@ -23,15 +28,17 @@
 
 <!-- PASSWORD PAGE -->
 <div id="password-section">
-    <h2>🔒 Enter the day we became official (MM-DD-YYYY)</h2>
-    <input type="password" id="password" placeholder="Enter password">
-    
-    <label>
-        <input type="checkbox" id="toggle"> Show Password
-    </label>
+    <div id="login-card">
+        <h2>🔒 Enter the day we became official (MM-DD-YYYY)</h2>
+        <input type="password" id="password" placeholder="Enter password">
+        
+        <label>
+            <input type="checkbox" id="toggle"> Show Password
+        </label>
 
-    <button onclick="checkPassword()">Enter</button>
-    <p id="error">Wrong password (Include -)</p>
+        <button onclick="checkPassword()">Enter</button>
+        <p id="error">Wrong password (Include -)</p>
+    </div>
 </div>
 
 <!-- MAIN CONTENT -->
@@ -47,92 +54,128 @@
             <button onclick="filterYear('special')">Special Events</button>
         </div>
 
+        <!-- OCTOBER (1 BUTTON) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event, 1)">October</button>
+            <button onclick="toggleMessages(event)" class="month-btn">October</button>
             <div class="message-row">
-                <div class="messages">
-                    <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message1a"></p>
-                    <p id="message1b"></p>
-                </div>
-                <div class="message-image">
-                    <img src="images/OctPic.jpg" alt="Our photo">
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>KHIAN'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- NOVEMBER (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event, 2)">November</button>
+            <button onclick="toggleMessages(event)" class="month-btn">November</button>
             <div class="message-row">
-                <div class="messages">
-                    <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message2a"></p>
-                    <b><p>AJ'S LETTER</p></b>
-                    <p id="message2b"></p>
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>KHIAN'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
-                <div class="message-image">
-                    <img src="images/NovPic.jpeg" alt="Our photo">
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>AJ'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- DECEMBER (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event, 3)">December</button>
+            <button onclick="toggleMessages(event)" class="month-btn">December</button>
             <div class="message-row">
-                <div class="messages">
-                    <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message3a"></p>
-                    <b><p>AJ'S LETTER</p></b>
-                    <p id="message3b"></p>
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>KHIAN'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
-                <div class="message-image">
-                    <img src="images/DecPic.png" alt="Our photo">
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>AJ'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- JANUARY (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event, 4)">January</button>
+            <button onclick="toggleMessages(event)" class="month-btn">January</button>
             <div class="message-row">
-                <div class="messages">
-                    <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message4a"></p>
-                    <b><p>AJ'S LETTER</p></b>
-                    <p id="message4b"></p>
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>KHIAN'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
-                <div class="message-image">
-                    <img src="images/JanPic.jpeg" alt="Our photo">
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>AJ'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- VALENTINE (1 BUTTON) -->
         <div class="message-box" data-year="special">
-            <button onclick="toggleMessages(event, 5)">Valentine</button>
+            <button onclick="toggleMessages(event)" class="month-btn">Valentine</button>
             <div class="message-row">
-                <div class="messages">
-                    <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message5a"></p>
-                </div>
-                <div class="message-image">
-                    <img src="images/ValPic.jpg" alt="Our photo">
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>KHIAN'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- FEBRUARY (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event, 6)">February</button>
+            <button onclick="toggleMessages(event)" class="month-btn">February</button>
             <div class="message-row">
-                <div class="messages">
-                    <b><p>KHIAN'S LETTER</p></b>
-                    <p id="message6a"></p>
-                    <b><p>AJ'S LETTER</p></b>
-                    <p id="message6b"></p>
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>KHIAN'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
-                <div class="message-image">
-                    <img src="images/FebPic.jpg" alt="Our photo">
+                <div class="msg-entry">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                        <span class="msg-text">
+                            <b>AJ'S LETTER</b>
+                            <span class="msg-content"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- COUNTDOWN PAGE -->
