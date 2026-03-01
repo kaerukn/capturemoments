@@ -593,4 +593,17 @@ h2 { font-size: 32px; margin-bottom: 30px; color: #1e3a8a; }
     input {
         width: 95%;
     }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .gallery-item img {
+        height: 220px;
+    }
+
+    .gallery-item p {
+        font-size: 13px;
+    }
 }
