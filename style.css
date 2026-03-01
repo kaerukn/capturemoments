@@ -602,7 +602,7 @@ h2 { font-size: 32px; margin-bottom: 30px; color: #1e3a8a; }
     .gallery-item img {
         width: 100%;
         height: auto;        /* Let height adjust naturally */
-        max-height: 200px;   /* Prevent it from becoming huge */
+        max-height: 100px;   /* Prevent it from becoming huge */
         object-fit: cover;
     }
 
