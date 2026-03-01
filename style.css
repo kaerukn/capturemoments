@@ -600,7 +600,10 @@ h2 { font-size: 32px; margin-bottom: 30px; color: #1e3a8a; }
     }
 
     .gallery-item img {
-        height: 220px;
+        width: 100%;
+        height: auto;        /* Let height adjust naturally */
+        max-height: 250px;   /* Prevent it from becoming huge */
+        object-fit: cover;
     }
 
     .gallery-item p {
