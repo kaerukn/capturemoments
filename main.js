@@ -1,3 +1,4 @@
+document.addEventListener("touchstart", () => {}, { passive: true });
 const correctPassword = "10-31-2025";
 const toggle = document.getElementById("toggle");
 
