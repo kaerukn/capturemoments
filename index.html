@@ -24,6 +24,7 @@
         <button onclick="showPage('messages-page')">Messages</button>
         <button onclick="showPage('countdown-page')">Countdown</button>
         <button onclick="showPage('gallery-page')">Gallery</button>
+        <button onclick="showPage('dayssince-page')">Days Since 🤍</button>
     </div>
 </div>
 
@@ -177,7 +178,6 @@
             </div>
         </div>
 
-        <!--MARCH-->
         <div class="message-box" data-year="first">
             <button onclick="toggleMessages(event)" class="month-btn">March</button>
             <div class="message-row">
@@ -303,6 +303,39 @@
 
         </div>
     </div>
+    <div id="dayssince-page" class="page">
+    <h2>DAYS WITH YOU 🤍</h2>
+
+    <p class="countdown-subtitle">Since October 31, 2025</p>
+
+    <!--COUNTER PAGE-->
+    <div class="countdown-container">
+        <div class="countdown-box">
+            <span id="ds-days">0</span>
+            <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+            <span id="ds-hours">0</span>
+            <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+            <span id="ds-minutes">0</span>
+            <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+            <span id="ds-seconds">0</span>
+            <span class="countdown-label">Seconds</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="videoPopup" class="video-popup">
+    <div class="video-content">
+        <h2 style="color:white; margin-bottom:15px;">Happy 1 Year 🤍</h2>
+        <video id="secretVideo" src="secret.mp4"></video>
+    </div>
+</div>
 
 </div>
 
