@@ -360,6 +360,10 @@ h2 { font-size: 32px; margin-bottom: 30px; color: #1e3a8a; }
     transform: scale(1.02);
 }
 
+button {
+    touch-action: manipulation;
+}
+
 /* Button */
 .msg-btn {
     width: 100%;

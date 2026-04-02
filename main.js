@@ -92,7 +92,9 @@ function toggleMessages(event) {
 
 /* Message Content */
 function toggleMsgContent(btn) {
-    btn.classList.toggle("active");
+    requestAnimationFrame(() => {
+        btn.classList.toggle("active");
+    });
 }
 
 /* Filter */
@@ -108,14 +110,16 @@ function createHearts() {
     const container = document.querySelector('.hearts-container');
 
     setInterval(() => {
-        const heart = document.createElement("div");
-        heart.innerHTML = "🤍";
-        heart.className = "heart";
-        heart.style.left = Math.random() * 100 + "%";
+        if (window.innerWidth > 600) { // only on desktop
+            const heart = document.createElement("div");
+            heart.innerHTML = "🤍";
+            heart.className = "heart";
+            heart.style.left = Math.random() * 100 + "%";
 
-        container.appendChild(heart);
-        setTimeout(() => heart.remove(), 7000);
-    }, 900);
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), 7000);
+        }
+    }, 1200);
 }
 
 /* Countdown */
@@ -135,7 +139,7 @@ function startCountdown() {
             showSecretVideo();
 
             document.getElementById("annivMessage").style.display = "block";
-            
+
             return;
         }
 

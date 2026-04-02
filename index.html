@@ -15,16 +15,16 @@
 
 <!-- SIDEBAR -->
 <div id="sidebar">
-    <div id="hamburger" onclick="toggleSidebar()">
+    <div id="hamburger" onpointerdown="toggleSidebar()">
         <span></span>
         <span></span>
         <span></span>
     </div>
     <div id="side-menu">
-        <button onclick="showPage('messages-page')">Messages</button>
-        <button onclick="showPage('countdown-page')">Countdown</button>
-        <button onclick="showPage('gallery-page')">Gallery</button>
-        <button onclick="showPage('dayssince-page')">Days Since 🤍</button>
+        <button onpointerdown="showPage('messages-page')">Messages</button>
+        <button onpointerdown="showPage('countdown-page')">Countdown</button>
+        <button onpointerdown=="showPage('gallery-page')">Gallery</button>
+        <button onpointerdown="showPage('dayssince-page')">Days Since 🤍</button>
     </div>
 </div>
 
@@ -38,7 +38,7 @@
             <input type="checkbox" id="toggle"> Show Password
         </label>
 
-        <button onclick="checkPassword()">Enter</button>
+        <button onpointerdown="checkPassword()">Enter</button>
         <p id="error">Wrong password (Include -)</p>
     </div>
 </div>
@@ -51,17 +51,17 @@
         <h2>CAPTURED MEMORIES</h2>
 
         <div class="navbar">
-            <button onclick="filterYear('all')">All</button>
-            <button onclick="filterYear('first')">1st Year</button>
-            <button onclick="filterYear('special')">Special Events</button>
+            <button onpointerdown="filterYear('all')">All</button>
+            <button onpointerdown="filterYear('first')">1st Year</button>
+            <button onpointerdown="filterYear('special')">Special Events</button>
         </div>
 
         <!-- OCTOBER (1 BUTTON) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event)" class="month-btn">October</button>
+            <button onpointerdown="toggleMessages(event)" class="month-btn">October</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -73,10 +73,10 @@
 
         <!-- NOVEMBER (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event)" class="month-btn">November</button>
+            <button onpointerdown="toggleMessages(event)" class="month-btn">November</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -96,10 +96,10 @@
 
         <!-- DECEMBER (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event)" class="month-btn">December</button>
+            <button onpointerdown="toggleMessages(event)" class="month-btn">December</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -119,10 +119,10 @@
 
         <!-- JANUARY (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event)" class="month-btn">January</button>
+            <button onpointerdown="toggleMessages(event)" class="month-btn">January</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -130,7 +130,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -142,10 +142,10 @@
 
         <!-- VALENTINE (1 BUTTON) -->
         <div class="message-box" data-year="special">
-            <button onclick="toggleMessages(event)" class="month-btn">Valentine</button>
+            <button onpointerdown="toggleMessages(event)" class="month-btn">Valentine</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -157,10 +157,10 @@
 
         <!-- FEBRUARY (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event)" class="month-btn">February</button>
+            <button onpointerdown="toggleMessages(event)" class="month-btn">February</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -179,10 +179,10 @@
         </div>
 
         <div class="message-box" data-year="first">
-            <button onclick="toggleMessages(event)" class="month-btn">March</button>
+            <button onpointerdown="toggleMessages(event)" class="month-btn">March</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onclick="toggleMsgContent(this)">
+                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
