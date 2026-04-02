@@ -133,6 +133,9 @@ function startCountdown() {
             document.getElementById("seconds").textContent = 0;
 
             showSecretVideo();
+
+            document.getElementById("annivMessage").style.display = "block";
+            
             return;
         }
 
