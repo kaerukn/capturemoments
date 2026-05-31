@@ -15,16 +15,17 @@
 
 <!-- SIDEBAR -->
 <div id="sidebar">
-    <div id="hamburger" onpointerdown="toggleSidebar()">
+    <div id="hamburger" onclick="toggleSidebar()">
         <span></span>
         <span></span>
         <span></span>
     </div>
     <div id="side-menu">
-        <button onpointerdown="showPage('messages-page')">Messages</button>
-        <button onpointerdown="showPage('countdown-page')">Countdown</button>
-        <button onpointerdown="showPage('gallery-page')">Gallery</button>
-        <button onpointerdown="showPage('dayssince-page')">Days Since 🤍</button>
+        <button onclick="showPage('messages-page')">Messages</button>
+        <button onclick="showPage('countdown-page')">Countdown</button>
+        <button onclick="showPage('gallery-page')">Gallery</button>
+        <button onclick="showPage('dayssince-page')">Days Since 🤍</button>
+        <button onclick="showPage('quiz-page')">Quiz 🤍</button>
     </div>
 </div>
 
@@ -38,7 +39,7 @@
             <input type="checkbox" id="toggle"> Show Password
         </label>
 
-        <button onpointerdown="checkPassword()">Enter</button>
+        <button onclick="checkPassword()">Enter</button>
         <p id="error">Wrong password (Include -)</p>
     </div>
 </div>
@@ -51,17 +52,17 @@
         <h2>CAPTURED MEMORIES</h2>
 
         <div class="navbar">
-            <button onpointerdown="filterYear('all')">All</button>
-            <button onpointerdown="filterYear('first')">1st Year</button>
-            <button onpointerdown="filterYear('special')">Special Events</button>
+            <button onclick="filterYear('all')">All</button>
+            <button onclick="filterYear('first')">1st Year</button>
+            <button onclick="filterYear('special')">Special Events</button>
         </div>
 
         <!-- OCTOBER (1 BUTTON) -->
         <div class="message-box" data-year="first">
-            <button onpointerdown="toggleMessages(event)" class="month-btn">October</button>
+            <button onclick="toggleMessages(event)" class="month-btn">October</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -73,10 +74,10 @@
 
         <!-- NOVEMBER (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onpointerdown="toggleMessages(event)" class="month-btn">November</button>
+            <button onclick="toggleMessages(event)" class="month-btn">November</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -84,7 +85,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -96,10 +97,10 @@
 
         <!-- DECEMBER (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onpointerdown="toggleMessages(event)" class="month-btn">December</button>
+            <button onclick="toggleMessages(event)" class="month-btn">December</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -107,7 +108,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -119,10 +120,10 @@
 
         <!-- JANUARY (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onpointerdown="toggleMessages(event)" class="month-btn">January</button>
+            <button onclick="toggleMessages(event)" class="month-btn">January</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -130,7 +131,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -142,10 +143,10 @@
 
         <!-- VALENTINE (1 BUTTON) -->
         <div class="message-box" data-year="special">
-            <button onpointerdown="toggleMessages(event)" class="month-btn">Valentine</button>
+            <button onclick="toggleMessages(event)" class="month-btn">Valentine</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -157,10 +158,10 @@
 
         <!-- FEBRUARY (2 BUTTONS) -->
         <div class="message-box" data-year="first">
-            <button onpointerdown="toggleMessages(event)" class="month-btn">February</button>
+            <button onclick="toggleMessages(event)" class="month-btn">February</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -168,7 +169,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -179,10 +180,10 @@
         </div>
 
         <div class="message-box" data-year="first">
-            <button onpointerdown="toggleMessages(event)" class="month-btn">March</button>
+            <button onclick="toggleMessages(event)" class="month-btn">March</button>
             <div class="message-row">
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>KHIAN'S LETTER</b>
                             <span class="msg-content"></span>
@@ -190,7 +191,7 @@
                     </div>
                 </div>
                 <div class="msg-entry">
-                    <div class="msg-btn" onpointerdown="toggleMsgContent(this)">
+                    <div class="msg-btn" onclick="toggleMsgContent(this)">
                         <span class="msg-text">
                             <b>AJ'S LETTER</b>
                             <span class="msg-content"></span>
@@ -275,78 +276,254 @@
 
     <!-- GALLERY PAGE -->
     <div id="gallery-page" class="page">
+
         <h2>OUR GALLERY 🤍</h2>
-        <p class="gallery-subtitle">Captured moments of us</p>
+
+        <p class="gallery-subtitle">
+            Captured moments of us
+        </p>
 
         <div class="gallery-container">
 
-            <div class="gallery-item">
-                <img src="images/OctPic.jpg" alt="First Date">
-                <p>First Meet</p>
+            <!-- CARD 1 -->
+            <div class="gallery-item" onclick="flipCard(this)">
+
+                <div class="polaroid-inner">
+
+                    <!-- FRONT -->
+                    <div class="polaroid-front">
+
+                        <img src="images/OctPic.jpg">
+
+                        <p>First Meet 🤍</p>
+
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="polaroid-back">
+
+                        <h3>First Meet 🤍</h3>
+
+                        <span>
+                            I still remember how nervous
+                            and excited I was that day.
+                            That moment changed everything
+                            for me. 🤍
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="gallery-item">
-                <img src="images/NovPic.jpeg" alt="First Monthsary">
-                <p>1st Monthsary</p>
+            <!-- CARD 2 -->
+            <div class="gallery-item" onclick="flipCard(this)">
+
+                <div class="polaroid-inner">
+
+                    <div class="polaroid-front">
+
+                        <img src="images/NovPic.jpeg">
+
+                        <p>1st Monthsary 🤍</p>
+
+                    </div>
+
+                    <div class="polaroid-back">
+
+                        <h3>1st Monthsary 🤍</h3>
+
+                        <span>
+                            Our first monthsary together.
+                            Time flew so fast because every
+                            moment with you felt so special.
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="gallery-item">
-                <img src="images/ValPic.jpg" alt="Cafe Date">
-                <p>acckkk first flower that I received</p>
+            <!-- CARD 3 -->
+            <div class="gallery-item" onclick="flipCard(this)">
+
+                <div class="polaroid-inner">
+
+                    <div class="polaroid-front">
+
+                        <img src="images/ValPic.jpg">
+
+                        <p>First Flower 🌹</p>
+
+                    </div>
+
+                    <div class="polaroid-back">
+
+                        <h3>First Flower 🌹</h3>
+
+                        <span>
+                            One of my favorite memories.
+                            I still can't believe I received
+                            flowers from you. 🤍
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="gallery-item">
-                <img src="images/90s-Cafe.jpeg" alt="90's">
-                <p>Valentine’s Day 🌹</p>
+            <!-- CARD 4 -->
+            <div class="gallery-item" onclick="flipCard(this)">
+
+                <div class="polaroid-inner">
+
+                    <div class="polaroid-front">
+
+                        <img src="images/90s-Cafe.jpeg">
+
+                        <p>Valentine's Date 🌹</p>
+
+                    </div>
+
+                    <div class="polaroid-back">
+
+                        <h3>Valentine's Date 🌹</h3>
+
+                        <span>
+                            Our first Valentine's together.
+                            One of the happiest days
+                            I've ever spent with you.
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="gallery-item">
-                <img src="images/90s-Food.jpeg" alt="90's">
-                <p>90's Cafe Food</p>
+            <!-- CARD 5 -->
+            <div class="gallery-item" onclick="flipCard(this)">
+
+                <div class="polaroid-inner">
+
+                    <div class="polaroid-front">
+
+                        <img src="images/Photobooth-date.jpeg">
+
+                        <p>Photobooth Date 📸</p>
+
+                    </div>
+
+                    <div class="polaroid-back">
+
+                        <h3>Photobooth Date 📸</h3>
+
+                        <span>
+                            Tiny printed memories,
+                            but huge moments for me.
+                            I love every picture with you.
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="gallery-item">
-                <img src="images/Photobooth-date.jpeg" alt="Photobooth">
-                <p>Photobooth Date🌹</p>
+            <!-- CARD 6 -->
+            <div class="gallery-item" onclick="flipCard(this)">
+
+                <div class="polaroid-inner">
+
+                    <div class="polaroid-front">
+
+                        <img src="images/pacific.jpeg">
+
+                        <p>Pacific 🤍</p>
+
+                    </div>
+
+                    <div class="polaroid-back">
+
+                        <h3>Pacific 🤍</h3>
+
+                        <span>
+                            You looked so cute here.
+                            One of my favorite candid
+                            pictures of you.
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="gallery-item">
-                <img src="images/pacific.jpeg" alt="pacific">
-                <p>Hiya pa s'ya n'yan</p>
+            <!-- CARD 7 -->
+            <div class="gallery-item" onclick="flipCard(this)">
+
+                <div class="polaroid-inner">
+
+                    <div class="polaroid-front">
+
+                        <img src="images/Tokyo-tokyodate.jpeg">
+
+                        <p>SM Tarlac 🤍</p>
+
+                    </div>
+
+                    <div class="polaroid-back">
+
+                        <h3>SM Tarlac 🤍</h3>
+
+                        <span>
+                            Simple moments with you
+                            always become unforgettable
+                            memories for me.
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="gallery-item">
-                <img src="images/Tokyo-tokyodate.jpeg" alt="tokyo-tokyo">
-                <p>SM Tarlac</p>
-            </div>
+            <!-- CARD 8 -->
+            <div class="gallery-item" onclick="flipCard(this)">
 
-            <div class="gallery-item">
-                <img src="images/DecPic.png" alt="Monthsary">
-                <p>2nd Monthsary</p>
-            </div>
+                <div class="polaroid-inner">
 
-            <div class="gallery-item">
-                <img src="images/JanPic.jpeg" alt="Monthsary">
-                <p>3rd Monthsary</p>
-            </div>
+                    <div class="polaroid-front">
 
-            <div class="gallery-item">
-                <img src="images/7/11_San-Leo.jpeg" alt="Mirror-pic">
-                <p>7/11 San leonardo ata?</p>
-            </div>
+                        <img src="images/DecPic.png">
 
-            <div class="gallery-item">
-                <img src="images/SM-Cinema_CR.jpeg" alt="SM">
-                <p>quickie (charot)</p>
-            </div>
+                        <p>2nd Monthsary 🤍</p>
 
-            <div class="gallery-item">
-                <img src="images/Dam-date.jpg" alt="Dam-date">
-                <p>Dam Date</p>
+                    </div>
+
+                    <div class="polaroid-back">
+
+                        <h3>2nd Monthsary 🤍</h3>
+
+                        <span>
+                            Even after fights and problems,
+                            we still chose each other.
+                            That's what matters most.
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
+
     </div>
+
     <div id="dayssince-page" class="page">
     <h2>DAYS WITH YOU 🤍</h2>
 
@@ -376,11 +553,88 @@
 
 <div id="videoPopup" class="video-popup">
     <div class="video-content">
-        <p class="anniv-message" id="annivMessage">Happy 1 Year 🤍</p>
+        <h2 style="color:white; margin-bottom:15px;">Happy 1 Year 🤍</h2>
         <video id="secretVideo" src="secret.mp4"></video>
     </div>
 </div>
 
+</div>
+
+<!-- QUIZ PAGE -->
+<div id="quiz-page" class="page">
+    <h2>HOW WELL DO YOU KNOW US? 🤍</h2>
+
+    <div class="quiz-container">
+
+        <div class="quiz-question">
+            <p>1. When did we become official?</p>
+
+            <button onclick="selectAnswer(this, true)">October 31, 2025</button>
+            <button onclick="selectAnswer(this, false)">October 25, 2025</button>
+            <button onclick="selectAnswer(this, false)">November 1, 2025</button>
+        </div>
+
+        <div class="quiz-question">
+            <p>2. Where was our Valentine’s date?</p>
+
+            <button onclick="selectAnswer(this, true)">90's Cafe</button>
+            <button onclick="selectAnswer(this, false)">Jollibee</button>
+            <button onclick="selectAnswer(this, false)">McDo</button>
+        </div>
+
+        <div class="quiz-question">
+            <p>3. What color are the floating hearts?</p>
+
+            <button onclick="selectAnswer(this, true)">White 🤍</button>
+            <button onclick="selectAnswer(this, false)">Red ❤️</button>
+            <button onclick="selectAnswer(this, false)">Pink 💖</button>
+        </div>
+
+        <div class="quiz-question">
+            <p>4. What is the name of this website?</p>
+
+            <button onclick="selectAnswer(this, true)">Captured Memories</button>
+            <button onclick="selectAnswer(this, false)">Love Space</button>
+            <button onclick="selectAnswer(this, false)">Our Story</button>
+        </div>
+
+        <div class="quiz-question">
+            <p>5. What page shows your time together?</p>
+
+            <button onclick="selectAnswer(this, true)">Days Since 🤍</button>
+            <button onclick="selectAnswer(this, false)">Gallery</button>
+            <button onclick="selectAnswer(this, false)">Messages</button>
+        </div>
+
+        <button class="submit-quiz" onclick="submitQuiz()">
+            Submit Quiz 🤍
+        </button>
+
+        <!-- QUIZ RESULT POPUP -->
+        <div id="quiz-popup">
+
+            <div class="quiz-popup-content">
+
+                <span id="close-popup">&times;</span>
+
+                <h2 id="popup-title">Quiz Result 🤍</h2>
+
+                <p id="popup-score"></p>
+
+                <img id="popup-image"
+                    src="images/ValPic.jpg"
+                    alt="Secret Memory">
+
+            </div>
+
+        </div>
+
+        <div id="secret-reward">
+            <img src="images/ValPic.jpg" alt="Secret Memory">
+            <p>You unlocked a secret memory 🤍</p>
+        </div>
+
+    </div>
 </div>
 
 <script src="main.js"></script>

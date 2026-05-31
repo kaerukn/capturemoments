@@ -1,4 +1,3 @@
-document.addEventListener("touchstart", () => {}, { passive: true });
 const correctPassword = "10-31-2025";
 const toggle = document.getElementById("toggle");
 
@@ -101,9 +100,7 @@ function toggleMessages(event) {
 
 /* Message Content */
 function toggleMsgContent(btn) {
-    requestAnimationFrame(() => {
-        btn.classList.toggle("active");
-    });
+    btn.classList.toggle("active");
 }
 
 /* Filter */
@@ -119,16 +116,14 @@ function createHearts() {
     const container = document.querySelector('.hearts-container');
 
     setInterval(() => {
-        if (window.innerWidth > 600) { // only on desktop
-            const heart = document.createElement("div");
-            heart.innerHTML = "🤍";
-            heart.className = "heart";
-            heart.style.left = Math.random() * 100 + "%";
+        const heart = document.createElement("div");
+        heart.innerHTML = "🤍";
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "%";
 
-            container.appendChild(heart);
-            setTimeout(() => heart.remove(), 7000);
-        }
-    }, 1200);
+        container.appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+    }, 900);
 }
 
 /* Countdown */
@@ -146,9 +141,6 @@ function startCountdown() {
             document.getElementById("seconds").textContent = 0;
 
             showSecretVideo();
-
-            document.getElementById("annivMessage").style.display = "block";
-
             return;
         }
 
@@ -214,4 +206,153 @@ function startDaysSince() {
 toggle.addEventListener("change", () => {
     const password = document.getElementById("password");
     password.type = toggle.checked ? "text" : "password";
+});
+
+/* QUIZ SYSTEM */
+let score = 0;
+
+function selectAnswer(button, correct) {
+
+    const parent = button.parentElement;
+
+    parent.querySelectorAll("button").forEach(btn => {
+        btn.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+    parent.dataset.correct = correct;
+}
+
+function submitQuiz() {
+
+    score = 0;
+
+    const questions = document.querySelectorAll(".quiz-question");
+
+    questions.forEach(question => {
+
+        if (question.dataset.correct === "true") {
+            score++;
+        }
+
+    });
+
+    const total = questions.length;
+    const percent = Math.round((score / total) * 100);
+
+    const popup = document.getElementById("quiz-popup");
+    const popupTitle = document.getElementById("popup-title");
+    const popupScore = document.getElementById("popup-score");
+    const popupImage = document.getElementById("popup-image");
+
+    popup.classList.add("show");
+
+    popupScore.innerHTML =
+        `You got ${score}/${total} (${percent}%) 🤍`;
+
+    /* PERFECT / PASS */
+    if (percent >= 90) {
+
+        popupTitle.innerHTML = "SECRET MEMORY UNLOCKED 🤍";
+
+        popupImage.style.display = "block";
+
+    }
+
+    /* LOW SCORE */
+    else if (percent < 20) {
+
+        popupTitle.innerHTML = "SYSTEM DELETING... 😭";
+
+        popupImage.style.display = "none";
+
+        document.body.style.animation = "shake 0.5s infinite";
+
+        setTimeout(() => {
+
+            document.body.style.animation = "";
+
+            popupTitle.innerHTML = "Just kidding baby 🤍";
+
+        }, 2500);
+
+    }
+
+    /* NORMAL SCORE */
+    else {
+
+        popupTitle.innerHTML = "Nice Try Baby 🤍";
+
+        popupImage.style.display = "none";
+
+    }
+
+}
+
+/* CLOSE POPUP */
+document.addEventListener("click", function(e) {
+
+    /* CLOSE BUTTON */
+    if (e.target.id === "close-popup") {
+
+        document
+            .getElementById("quiz-popup")
+            .classList.remove("show");
+
+    }
+
+    /* CLICK OUTSIDE */
+    if (e.target.id === "quiz-popup") {
+
+        document
+            .getElementById("quiz-popup")
+            .classList.remove("show");
+
+    }
+
+});
+
+
+/* ===================================
+   POLAROID FLIP SYSTEM
+=================================== */
+
+function flipCard(card) {
+
+    /* FIRST CLICK = ENLARGE */
+    if (!card.classList.contains("active")) {
+
+        document.querySelectorAll(".gallery-item").forEach(item => {
+
+            item.classList.remove("active");
+            item.classList.remove("flipped");
+
+        });
+
+        card.classList.add("active");
+
+        return;
+    }
+
+    /* SECOND CLICK = FLIP */
+    card.classList.toggle("flipped");
+}
+
+/* CLICK OUTSIDE TO CLOSE */
+document.addEventListener("click", function(e) {
+
+    const clickedCard = e.target.closest(".gallery-item");
+
+    if (!clickedCard) {
+
+        document.querySelectorAll(".gallery-item").forEach(item => {
+
+            item.classList.remove("active");
+            item.classList.remove("flipped");
+
+        });
+
+    }
+
 });
