@@ -72,7 +72,9 @@ function loadMessages() {
         ]
     };
 
-    document.querySelectorAll('.message-box').forEach((box, index) => {
+        document.querySelectorAll('.message-box').forEach((box, index) => {
+        console.log(index + 1, messages[index + 1]);
+
         const btns = box.querySelectorAll('.msg-btn');
         const data = messages[index + 1];
 
