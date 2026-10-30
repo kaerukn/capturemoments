@@ -163,22 +163,7 @@ function startCountdown() {
 
 let videoPlayed = false;
 
-function showSecretVideo() {
-    if (videoPlayed) return; // prevents repeating
-    videoPlayed = true;
 
-    const popup = document.getElementById("videoPopup");
-    const video = document.getElementById("secretVideo");
-
-    popup.classList.add("show");
-
-    video.muted = true;
-    video.play();
-
-    setTimeout(() => {
-        video.muted = false;
-    }, 1000);
-}
 
 function startDaysSince() {
     const startDate = new Date("October 31, 2025 00:00:00").getTime();

@@ -1127,11 +1127,6 @@ h2 { font-size: 32px; margin-bottom: 30px; color: #1e3a8a; }
         font-size: 32px;
     }
 
-    .video-content {
-        width: 95%;
-        max-width: none;
-        aspect-ratio: 9 / 16; /* portrait for phones */
-    }
 
     input {
         width: 95%;
